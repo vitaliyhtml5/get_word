@@ -1,3 +1,4 @@
+const http = require('http');
 const url = require('url');
 const selectByCategory = require('./db/select_by_category.js');
 
@@ -7,12 +8,12 @@ const getByCategory = (req, res) => {
     selectByCategory(category.toString(), (err, data) => {
         try {
             if (err) {
-                res.status(400).send(err)
+                res.writeHead(400, {'Content-Type': 'text/plain'}).end(err)
             } else {
-                res.send(data);
+                res.writeHead(200, {'Content-type': 'application/json'}).end(JSON.stringify(data));
             }
         } catch (e) {
-            res.status(500).send('something went wrong');
+            res.writeHead(500, {'Content-Type': 'text/plain'}).end('something went wrong');
         } 
     });
 }
