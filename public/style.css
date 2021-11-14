@@ -269,17 +269,83 @@ button {
     font-weight: 700;
 }
 
+/* Filter */
+.filter-wrap {
+    overflow-y: auto;
+    position: absolute;
+    z-index: 5;
+    top: 35px;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    width: 240px;
+    height: 260px;
+    padding: 10px;
+    border: 1px solid #626161;
+    border-radius: 4px;
+    background-color: #fff;
+}
+.filter-wrap h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+}
+.filter-wrap label {
+    position: relative;
+    align-self: baseline;
+    margin-bottom: 12px;
+    padding-left: 17px;
+    font-size: 18px;
+    transition: .4s;
+    cursor: pointer;
+}
+.filter-wrap span {
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 5px;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #a108e7;
+    border-radius: 3px;
+    transform: translateY(-50%);
+}
+.filter-wrap label:hover {
+    color: #a108e7;
+}
+.filter-wrap input:checked+span {
+    background: #a108e7 url(img/checkbox.svg) 60% 50%/75% no-repeat;
+}
+.filter-wrap input {
+    visibility: hidden;
+}
+.filter-btn-wrap {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 10px auto 5px;
+}
+.filter-wrap button {
+    width: 48%;
+    padding: 7px 0;
+    font-size: 15px;
+}
+
 /* Scroll */
-.words-grid-wrap::-webkit-scrollbar {
+.words-grid-wrap::-webkit-scrollbar,
+.filter-wrap::-webkit-scrollbar {
     width: 8px;
     background-color: transparent;
 }
-.words-grid-wrap::-webkit-scrollbar-thumb {
+.words-grid-wrap::-webkit-scrollbar-thumb,
+.filter-wrap::-webkit-scrollbar {
     background: #f0efef;
     border-radius: 4px;
 }
 
-.words-grid-wrap::-webkit-scrollbar-thumb:hover {
+.words-grid-wrap::-webkit-scrollbar-thumb:hover,
+.filter-wrap::-webkit-scrollbar {
     background: #dea6f8;
 }
 

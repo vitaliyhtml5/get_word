@@ -2,12 +2,17 @@
 
 // Single slider
 import {getAllWords} from './get_all_words.js';
+import {getCategory} from './get_category.js';
+import {setFilter} from './set_filter.js';
 
 async function useSingleSlider() {
-    const allWords = await getAllWords();
+    let allWords;
+    const filter = setFilter();
+    filter === '' ? allWords = await getAllWords() : allWords = await getCategory(filter);
+    
     document.querySelector('.word-single-wrap').style.display = 'flex';
     document.querySelector('.words-grid-wrap').style.display = 'none';
-    document.querySelectorAll('.set-word-wrap .material-icons')[0].textContent = 'grid_view';
+    document.querySelectorAll('.set-word-wrap li')[0].textContent = 'grid_view';
 
     const quantity = document.querySelector('.word-single-wrap .counter');
     const img = document.querySelector('.word-img-wrap img');

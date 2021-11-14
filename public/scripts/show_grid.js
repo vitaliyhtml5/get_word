@@ -2,15 +2,19 @@
 
 // Show grid of words
 import {getAllWords} from './get_all_words.js';
+import {getCategory} from './get_category.js';
+import {setFilter} from './set_filter.js';
 
 async function showGrid() {
     document.querySelector('.word-single-wrap').style.display = 'none';
     document.querySelectorAll('.set-word-wrap .material-icons')[0].textContent = 'crop_square';
     const gridWrap = document.querySelector('.words-grid-wrap');
+    clearGrids();
     gridWrap.style.display = 'flex';
     
-    const allWords = await getAllWords();
-    clearGrids();
+    let allWords;
+    const filter = setFilter();
+    filter === '' ? allWords = await getAllWords() : allWords = await getCategory(filter);
     
     let numberWords;
     if (allWords.length <= 9) {
