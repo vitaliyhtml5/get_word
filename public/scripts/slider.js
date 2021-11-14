@@ -5,6 +5,7 @@ import {getAllWords} from './get_all_words.js';
 
 async function useSingleSlider() {
     const allWords = await getAllWords();
+    document.querySelector('.word-single-wrap').style.display = 'flex';
     document.querySelector('.words-grid-wrap').style.display = 'none';
     document.querySelectorAll('.set-word-wrap .material-icons')[0].textContent = 'grid_view';
 

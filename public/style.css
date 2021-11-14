@@ -113,7 +113,8 @@ button {
 
 /* Main */
 #main-wrap {
-   flex-basis: 100%;
+    position: relative;
+    flex-basis: 100%;
 }
 
 /* Learn word */
@@ -218,10 +219,9 @@ button {
 }
 
 /* Grid images */
-
 .words-grid-wrap {
     overflow-y: auto;
-    display: flex;
+    display: none;
     flex-direction: row;
     flex-wrap: wrap !important;
     justify-content: space-between;
@@ -238,6 +238,7 @@ button {
     width: 280px;
     height: 220px;
     margin-bottom: 0 !important;
+    box-shadow: 2px 3px 5px 1px rgba(128,79,126,0.45);
 }
 .words-grid img {
     width: 120px;
@@ -249,6 +250,23 @@ button {
 }
 .words-grid .fav-btn {
     font-size: 18px;
+}
+.load-word {
+    order: 1000;
+    width: 100%;
+    margin: 15px 0 0;
+}
+.load-word button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 270px;
+    margin: 0 auto;
+    padding: 15px;
+}
+.load-word button span {
+    margin-right: 10px;
+    font-weight: 700;
 }
 
 /* Scroll */
@@ -263,4 +281,45 @@ button {
 
 .words-grid-wrap::-webkit-scrollbar-thumb:hover {
     background: #dea6f8;
+}
+
+/* Loader */
+.loader {
+    position: absolute;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    background-color: rgba(255,255,255,0.75);
+}
+.loader::before {
+    position: absolute;
+    z-index: 25;
+    content: '';
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    border: 3px solid #8a0ac5;
+    border-top-color: transparent;
+    border-radius: 50%;
+    transform: translate(-50%,-50%);
+    animation: 0.8s startLoader linear infinite;;
+}
+
+
+
+
+/* Animations */
+
+@keyframes startLoader {
+    0% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
 }
