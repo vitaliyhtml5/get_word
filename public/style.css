@@ -12,6 +12,7 @@
 
 html,
 body {
+    min-height: 100vh;
 	color: #3f3f3f;
 	font: 400 14px/26px Raleway, Arial, Helvetica, sans-serif;
 	background-color: #fff;
@@ -41,6 +42,10 @@ button {
     margin: 0 auto;
     padding: 0 10px;
 }
+.material-icons {
+    user-select: none;
+}
+
 /* Header */
 #header {
 	background-color: rgba(177,5,255,0.8);
@@ -217,6 +222,13 @@ button {
 .button-main:active {
     background-color: #8a0ac5;
 }
+.random-icon_off {
+    opacity: 0.4;
+}
+.random-btn {
+    width: 80%;
+    margin: 0 auto;
+}
 
 /* Grid images */
 .words-grid-wrap {
@@ -377,9 +389,7 @@ button {
 }
 
 
-
-
-/* Animations */
+/* Animations and class for js */
 
 @keyframes startLoader {
     0% {
@@ -388,4 +398,7 @@ button {
     100% {
         transform: translate(-50%, -50%) rotate(0deg);
     }
+}
+.show-flex {
+    display: flex;
 }

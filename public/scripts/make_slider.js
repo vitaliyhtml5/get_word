@@ -1,18 +1,16 @@
 'use strict';
 
 // Single slider
-import {getAllWords} from './get_all_words.js';
-import {getCategory} from './get_category.js';
-import {setFilter} from './set_filter.js';
 
-async function useSingleSlider() {
-    let allWords;
-    const filter = setFilter();
-    filter === '' ? allWords = await getAllWords() : allWords = await getCategory(filter);
-    
+function useSingleSlider(words) {
+    // const filter = setFilter();
+    // filter === '' ? allWords = await getAllWords() : allWords = await getCategory(filter);
+   
     document.querySelector('.word-single-wrap').style.display = 'flex';
     document.querySelector('.words-grid-wrap').style.display = 'none';
-    document.querySelectorAll('.set-word-wrap li')[0].textContent = 'grid_view';
+    document.querySelector('.cards-view').textContent = 'grid_view';
+    document.querySelector('.random-icon').style.display = 'block';
+    document.querySelector('.random-icon').classList.add('random-icon_off');
 
     const quantity = document.querySelector('.word-single-wrap .counter');
     const img = document.querySelector('.word-img-wrap img');
@@ -21,6 +19,7 @@ async function useSingleSlider() {
     const ru = document.querySelector('.word-single-wrap span');
     const btn = document.querySelectorAll('.word-single-wrap .btn-wrap button');
     let counter = 0;
+    let random = false;
 
     changeSlider();
 
@@ -38,8 +37,9 @@ async function useSingleSlider() {
     });
 
     function moveSliderForward() {
-        counter++;
-        if (counter === allWords.length) {
+        random === false ? counter++ : counter = getRandom();
+
+        if (counter === words.length) {
             counter = 0;
         }
         changeSlider();
@@ -48,17 +48,38 @@ async function useSingleSlider() {
     function moveSliderBack() {
         counter--;
         if (counter < 0 ) {
-            counter = allWords.length - 1;
+            counter = words.length - 1;
         }
         changeSlider();
     }
 
     function changeSlider() {
-        quantity.textContent = `${counter+1}/${allWords.length}`;
-        img.src = `img/words/${allWords[counter].image}`;
-        eng.textContent = allWords[counter].english;
-        sound.textContent = allWords[counter].transcription;
-        ru.textContent = allWords[counter].russian;
+        quantity.textContent = `${counter+1}/${words.length}`;
+        img.src = `img/words/${words[counter].image}`;
+        eng.textContent = words[counter].english;
+        sound.textContent = words[counter].transcription;
+        ru.textContent = words[counter].russian;
+    }
+    
+    // Switch to random order
+    document.querySelector('.random-icon').addEventListener('click', function() {
+        if (!random) {
+            this.classList.remove('random-icon_off');
+            random = true;
+            btn[0].style.display = 'none';
+            btn[1].textContent = 'Random';
+            btn[1].classList.add('random-btn');
+        } else {
+            this.classList.add('random-icon_off');
+            random = false;
+            btn[0].style.display = 'block';
+            btn[1].textContent = 'Next';
+            btn[1].classList.remove('random-btn');
+        }
+    });
+
+    function getRandom() {
+        return Math.floor(Math.random() * words.length);
     }
 }
 

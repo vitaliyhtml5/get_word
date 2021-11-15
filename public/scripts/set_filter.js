@@ -19,7 +19,12 @@ const filterWrap = document.querySelector('.filter-wrap');
 const filterBtn = document.querySelectorAll('.filter-btn-wrap button');
 
 function useFilter() {
-    filterWrap.style.display = 'flex';
+    if (!filterWrap.classList.contains('show-flex')) {
+        filterWrap.classList.add('show-flex');
+    } else  {
+        closeFilter()
+    }
+
     filterBtn[0].addEventListener('click', () => {
         // changeSingleGrid();
         useSingleSlider();
@@ -39,7 +44,7 @@ function useFilter() {
 filterBtn[1].addEventListener('click', closeFilter);
 
 function closeFilter() {
-    filterWrap.style.display = 'none';
+    filterWrap.classList.remove('show-flex');
 }
 
 export {setFilter, useFilter};

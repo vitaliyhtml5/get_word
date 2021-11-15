@@ -1,24 +1,21 @@
 'use strict';
 
 // Show grid of words
-import {getAllWords} from './get_all_words.js';
-import {getCategory} from './get_category.js';
-import {setFilter} from './set_filter.js';
 
-async function showGrid() {
+function showGrid(words) {
     document.querySelector('.word-single-wrap').style.display = 'none';
-    document.querySelectorAll('.set-word-wrap .material-icons')[0].textContent = 'crop_square';
+    document.querySelector('.cards-view').textContent = 'crop_square';
+    document.querySelector('.random-icon').style.display = 'none';
     const gridWrap = document.querySelector('.words-grid-wrap');
     clearGrids();
     gridWrap.style.display = 'flex';
     
-    let allWords;
-    const filter = setFilter();
-    filter === '' ? allWords = await getAllWords() : allWords = await getCategory(filter);
-    
+    // const filter = setFilter();
+    // filter === '' ? allWords = await getAllWords() : allWords = await getCategory(filter);
+
     let numberWords;
-    if (allWords.length <= 9) {
-        numberWords = allWords.length;
+    if (words.length <= 9) {
+        numberWords = words.length;
         document.querySelector('.words-grid-wrap .load-word button').style.display = 'none';
     } else {
         numberWords = 9;
@@ -30,10 +27,10 @@ async function showGrid() {
             gridWrap.innerHTML += `
                 <div class="words-grid">
                     <button class="fav-btn material-icons" title="Mark as favorite">star</button>
-                    <img src="img/words/${allWords[i].image}">
-                    <b>${allWords[i].english}</b>
-                    <i>${allWords[i].transcription}</i>
-                    <span>${allWords[i].russian}</span>
+                    <img src="img/words/${words[i].image}">
+                    <b>${words[i].english}</b>
+                    <i>${words[i].transcription}</i>
+                    <span>${words[i].russian}</span>
                 </div>`
         }
         loadMoreWords(); 
@@ -42,12 +39,12 @@ async function showGrid() {
     function loadMoreWords() {
         const btn = document.querySelector('.words-grid-wrap .load-word button');
         btn.addEventListener('click', (e) => {
-            if ((numberWords + 9) <= allWords.length) {
+            if ((numberWords + 9) <= words.length) {
                 numberWords += 9;
                 addWords(numberWords - 9);
             } else {
                 let lastStart = numberWords;
-                numberWords = allWords.length;
+                numberWords = words.length;
                 e.target.style.display = 'none';
                 addWords(lastStart);
             }
