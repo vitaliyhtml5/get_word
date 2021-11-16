@@ -3,6 +3,8 @@
 import {useSingleSlider} from './scripts/make_slider.js';
 import {showGrid} from './scripts/show_grid.js';
 import {useFilter} from './scripts/set_filter.js';
+import {changeMenu} from './scripts/change_menu.js';
+import {getCategory} from './scripts/get_category.js'
 
 // API queries
 import {getAllWords} from './scripts/get_all_words.js';
@@ -36,6 +38,18 @@ function getWords(words) {
 
 // Filter
 document.querySelector('.filter-icon').addEventListener('click', () => useFilter(allWords));
+
+//Change tabs
+changeMenu();
+
+//Get words by category
+// chooseCategory();
+async function chooseCategory() {
+    // const res = await getAllWordsAPI(); 
+    getCategory(allWords, 'job');
+}
+
+
 
 
 export {getWords};

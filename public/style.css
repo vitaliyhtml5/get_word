@@ -90,16 +90,17 @@ button {
     font-size: 24px;
     line-height: 1.2;
 }
+.nav-list li:hover .category-list,
+.sublist-menu,
+.nav-list .sublist-menu:hover {
+    color: #626161 !important;
+    cursor: default !important;
+}
 .nav-item_checked,
 .nav-list li:hover {
     color: #b105ff !important;
 }
 .nav-item_checked {
-    cursor: default !important;
-}
-.nav-list li:hover .category-list,
-.sublist-menu {
-    color: #626161 !important;
     cursor: default !important;
 }
 .sublist-menu {
@@ -120,6 +121,9 @@ button {
 #main-wrap {
     position: relative;
     flex-basis: 100%;
+}
+.menu {
+    display: none;
 }
 
 /* Learn word */

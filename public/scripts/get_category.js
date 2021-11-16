@@ -1,13 +1,13 @@
 'use strict';
 
-// API get category
-async function getCategory(param) {
-    const loader = document.querySelector('.loader');
-    loader.style.display = 'block';
-    const res = await fetch(`/get-word?${param}`);
-    const data = await res.json();
-    loader.style.display = 'none';
-    return data;
+function getCategory(words, category) {   
+    const wordsByCategory = [];
+    for (let i = 0; i < words.length; i++) {
+        if (words[i].category === category) {
+            wordsByCategory.push(words[i]);
+        }
+    }
+    return wordsByCategory;
 }
 
 export {getCategory};
