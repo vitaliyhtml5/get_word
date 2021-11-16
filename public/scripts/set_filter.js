@@ -1,45 +1,43 @@
 'use strict';
 
+import {getWords} from '../script.js';
 import {useSingleSlider} from './make_slider.js';
-import {showGrid} from './show_grid.js';
 
-function setFilter() {
-    const category = document.querySelectorAll('.filter-wrap input');
-    let param = '';
-    category.forEach(el => {
-        if (el.checked) {
-            param += `category=${el.value}&`;
-        }
-    });
-    param = param.slice(0,-1);
-    return param;
+// Set filter 
+function setFilter(words) {
+    const category = document.querySelectorAll('.filter-wrap input');   
+    const wordsByCategory = [];
+    for (let i = 0; i < words.length; i++) {
+        category.forEach(el => {
+            if (el.checked && words[i].category === el.value) {
+                wordsByCategory.push(words[i]);
+            }
+        });
+    }
+    if (wordsByCategory.length === 0) {
+        return words;
+    } else {
+        return wordsByCategory;
+    } 
 }
 
 const filterWrap = document.querySelector('.filter-wrap');
 const filterBtn = document.querySelectorAll('.filter-btn-wrap button');
 
-function useFilter() {
+function useFilter(words) {
     if (!filterWrap.classList.contains('show-flex')) {
         filterWrap.classList.add('show-flex');
     } else  {
-        closeFilter()
+        closeFilter();
     }
 
     filterBtn[0].addEventListener('click', () => {
-        // changeSingleGrid();
-        useSingleSlider();
+        let filtereWords = setFilter(words)
+        getWords(filtereWords);
         closeFilter();
     });
 }
 
-// function changeSingleGrid() {
-//     const learnSingle = document.querySelector('#learn-word .word-single-wrap');
-//     if (learnSingle.style.display === 'flex') {
-//         useSingleSlider();
-//     } else {
-//         showGrid();
-//     }
-// }
 
 filterBtn[1].addEventListener('click', closeFilter);
 

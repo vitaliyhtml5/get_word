@@ -7,23 +7,35 @@ import {useFilter} from './scripts/set_filter.js';
 // API queries
 import {getAllWords} from './scripts/get_all_words.js';
 
+let allWords = [];
 
-// Learn word section
-let allwords = [];
+// Get all words
 getAllWordsAPI();
 async function getAllWordsAPI() {
-    let allwords = await getAllWords();
-    useSingleSlider(allwords);
-
-    const learnSingle = document.querySelector('#learn-word .word-single-wrap');
-    
-    document.querySelector('.cards-view').addEventListener('click', changeSingleGrid);
-    document.querySelector('.filter-icon').addEventListener('click', useFilter);
-    
-    function changeSingleGrid() {
-        learnSingle.style.display === 'flex' ? showGrid(allwords) : useSingleSlider(allwords);
-    }
+    const res = await getAllWords();
+    allWords = res;
+    useSingleSlider(allWords);
+    getWords(allWords);
 }
 
+// Change single word/grid
+function getWords(words) {   
+    useSingleSlider(words);
+    let single = true;
+
+    document.querySelector('.cards-view').addEventListener('click', () => {
+        if (single) {
+            showGrid(words);
+            single = false;
+        } else {
+            useSingleSlider(words);
+            single = true;
+        }
+    });
+}
+
+// Filter
+document.querySelector('.filter-icon').addEventListener('click', () => useFilter(allWords));
 
 
+export {getWords};

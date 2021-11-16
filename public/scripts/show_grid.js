@@ -1,7 +1,6 @@
 'use strict';
 
 // Show grid of words
-
 function showGrid(words) {
     document.querySelector('.word-single-wrap').style.display = 'none';
     document.querySelector('.cards-view').textContent = 'crop_square';
@@ -9,9 +8,6 @@ function showGrid(words) {
     const gridWrap = document.querySelector('.words-grid-wrap');
     clearGrids();
     gridWrap.style.display = 'flex';
-    
-    // const filter = setFilter();
-    // filter === '' ? allWords = await getAllWords() : allWords = await getCategory(filter);
 
     let numberWords;
     if (words.length <= 9) {

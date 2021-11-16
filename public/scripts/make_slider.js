@@ -1,11 +1,7 @@
 'use strict';
 
 // Single slider
-
-function useSingleSlider(words) {
-    // const filter = setFilter();
-    // filter === '' ? allWords = await getAllWords() : allWords = await getCategory(filter);
-   
+function useSingleSlider(words) {   
     document.querySelector('.word-single-wrap').style.display = 'flex';
     document.querySelector('.words-grid-wrap').style.display = 'none';
     document.querySelector('.cards-view').textContent = 'grid_view';
@@ -62,7 +58,7 @@ function useSingleSlider(words) {
     }
     
     // Switch to random order
-    document.querySelector('.random-icon').addEventListener('click', function() {
+    document.querySelector('.random-icon').onclick = function() {
         if (!random) {
             this.classList.remove('random-icon_off');
             random = true;
@@ -76,7 +72,7 @@ function useSingleSlider(words) {
             btn[1].textContent = 'Next';
             btn[1].classList.remove('random-btn');
         }
-    });
+    }
 
     function getRandom() {
         return Math.floor(Math.random() * words.length);
