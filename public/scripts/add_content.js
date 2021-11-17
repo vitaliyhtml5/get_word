@@ -4,10 +4,12 @@
 function addContent(index) {
     const content = document.querySelectorAll('.words-section');
     content.forEach(el => el.innerHTML = ``);
+    document.querySelector('#search-word').innerHTML = ``;
 
     content[index].innerHTML = `
         <ul class="set-word-wrap">
             <li class="material-icons random-icon random-icon_off" title="Random word">rocket</li>
+            <li class="material-icons eye-icon" title="Show or hide English">visibility</li>
             <li class="material-icons cards-view" title="Card view">grid_view</li>
             <li class="material-icons filter-icon" title="Filter">filter_alt</li>
         </ul>
@@ -44,4 +46,25 @@ function addContent(index) {
     `;
 }
 
-export {addContent};
+function addSearchContent() {
+    document.querySelectorAll('.words-section').forEach(el => el.innerHTML = ``);
+
+    document.querySelector('#search-word').innerHTML = `
+        <div class="set-word-wrap search-form">
+            <form class="search-form">
+                <input type="text" autofocus>
+                <button class="button-main" type="button">Search</button>
+            </form>
+        </div>
+        <div class="search-message">
+            <img src="img/search.png">
+            <p>Try to search a word</p>
+        </div>
+        <div class="words-grid-wrap">
+            <div class="load-word"><button class="button-main"><span class="material-icons">restart_alt</span>Add more</button>
+            </div>
+        </div>
+    `;
+}
+
+export {addContent, addSearchContent};

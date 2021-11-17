@@ -190,6 +190,7 @@ button {
 .word-single-wrap b,
 .words-grid b {
     font-size: 1.2em;
+    letter-spacing: 1px;
 }
 .word-single-wrap i,
 .words-grid i {
@@ -222,7 +223,8 @@ button {
 .button-main:active {
     background-color: #8a0ac5;
 }
-.random-icon_off {
+.random-icon_off,
+.eye-icon_off {
     opacity: 0.4;
 }
 .random-btn {
@@ -342,6 +344,44 @@ button {
     width: 48%;
     padding: 7px 0;
     font-size: 15px;
+}
+
+/* Search menu */
+.search-form {
+    display: flex;
+}
+.search-form input {
+    width: 230px;
+    margin-right: 2px;
+    padding: 8px;
+    border: 1px solid #b61ffb;
+    border-radius: 4px;
+    color: #626161;
+    font: 500 18px Raleway, Arial, Helvetica, sans-serif;
+}
+.search-form input:focus {
+    border-color: #8a0ac5;
+}
+.search-form button {
+    width: 120px;
+    padding: 8px 0;
+}
+.search-message {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 60vh;
+    width: 100%;
+    text-align: center;
+}
+.search-message img {
+    width: 300px;
+    margin: 0 auto 30px;
+}
+.search-message p {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
 }
 
 /* Scroll */

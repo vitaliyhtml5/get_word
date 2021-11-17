@@ -5,6 +5,7 @@ function showGrid(words) {
     document.querySelector('.word-single-wrap').style.display = 'none';
     document.querySelector('.cards-view').textContent = 'crop_square';
     document.querySelector('.random-icon').style.display = 'none';
+    document.querySelector('.eye-icon').style.display = 'none';
     const gridWrap = document.querySelector('.words-grid-wrap');
     clearGrids();
     gridWrap.style.display = 'flex';

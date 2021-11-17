@@ -2,7 +2,7 @@
 
 import {getCategory} from './get_category.js';
 import {getWords} from '../script.js';
-import {addContent} from './add_content.js';
+import {addContent, addSearchContent} from './add_content.js';
 import {useFilter} from './set_filter.js';
 
 // Changing menu in sidebar
@@ -25,7 +25,7 @@ function changeMenu(allWords) {
                 document.querySelector('.filter-icon').style.display = 'none';
                 document.querySelector('.sublist-menu').classList.add('nav-item_checked');
             } else if (index === 5) {
-              return;  
+                addSearchContent(); 
             } else if (index === 6) {
                 addContent(0);
                 getWords(allWords);
