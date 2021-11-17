@@ -22,65 +22,30 @@
             <div class="content-wrap">
                 <aside id="aside">
                     <ul class="nav-list">
-                        <li class="nav-item_checked"><span class="material-icons">event_note</span>Learn word</li>
+                        <li class="nav-item_checked menu-item"><span class="material-icons">event_note</span>Learn word</li>
                         <li class="sublist-menu"><span class="material-icons">work_outline</span>Choose category
                             <ul class="category-list">
-                                <li>animals</li>
-                                <li>food</li>
-                                <li>fruit</li>
-                                <li>job</li>
+                                <li class="menu-item">animals</li>
+                                <li class="menu-item">food</li>
+                                <li class="menu-item">fruit</li>
+                                <li class="menu-item">job</li>
                             </ul>
                         </li>
-                        <li><span class="material-icons">search</span>Search word</li>
-                        <li><span class="material-icons">star_outline</span>Favorite words</li>
+                        <li class="menu-item"><span class="material-icons">search</span>Search word</li>
+                        <li class="menu-item"><span class="material-icons">star_outline</span>Favorite words</li>
                     </ul>
                 </aside>
                 <div id="main-wrap">
                     <div class="loader"></div>
-                    <div id="learn-word" class="menu">
-                        <ul class="set-word-wrap">
-                            <li class="material-icons random-icon random-icon_off" title="Random word">rocket</li>
-                            <li class="material-icons cards-view" title="Card view">grid_view</li>
-                            <li class="material-icons filter-icon" title="Filter">filter_alt</li>
-                        </ul>
-                        <div class="filter-wrap">
-                            <h3>Choose category</h3>
-                            <label><input type="checkbox" value="animals"><span></span>animals</label>
-                            <label><input type="checkbox" value="food"><span></span>food</label>
-                            <label><input type="checkbox" value="fruit"><span></span>fruit</label>
-                            <label><input type="checkbox" value="job"><span></span>job</label>
-                            <div class="filter-btn-wrap">
-                                <button class="button-main" type="button">Apply filter</button>
-                                <button class="button-main" type="button">Cancel</button>
-                            </div>
-                        </div>
-                        <div class="word-single-wrap">
-                            <button class="fav-btn material-icons" title="Mark as favorite">star</button>
-                            <div class="counter"></div>
-                            <div class="word-img-wrap">
-                                <img>
-                            </div>
-                            <b></b>
-                            <i></i>
-                            <span></span>
-                            <div class="btn-wrap">
-                                <button class="button-main">Back</button>
-                                <button class="button-main">Next</button>
-                            </div>
-                        </div>
-                        <div class="words-grid-wrap">
-                            <div class="load-word"><button class="button-main"><span class="material-icons">restart_alt</span>Add more</button>
-                            </div>
-                        </div>
-                    </div>
+                    <div id="learn-word" class="words-section"></div>
                     <div id="choose-category">
-                        <div class="menu"></div>
-                        <div class="menu"></div>
-                        <div class="menu"></div>
-                        <div class="menu"></div>
+                        <div class="words-section"></div>
+                        <div class="words-section"></div>
+                        <div class="words-section"></div>
+                        <div class="words-section"></div>
                     </div>
-                    <div id="search-word" class="menu"></div>
-                    <div id="favorite-word" class="menu"></div>
+                    <div id="search-word"></div>
+                    <div id="favorite-word" class="words-section"></div>
                 </div>
             </div>
         </div>

@@ -1,7 +1,6 @@
 'use strict';
 
 import {getWords} from '../script.js';
-import {useSingleSlider} from './make_slider.js';
 
 // Set filter 
 function setFilter(words) {
@@ -21,10 +20,11 @@ function setFilter(words) {
     } 
 }
 
-const filterWrap = document.querySelector('.filter-wrap');
-const filterBtn = document.querySelectorAll('.filter-btn-wrap button');
-
 function useFilter(words) {
+    document.querySelector('.filter-icon').style.display = 'block';
+    const filterWrap = document.querySelector('.filter-wrap');
+    const filterBtn = document.querySelectorAll('.filter-btn-wrap button');
+
     if (!filterWrap.classList.contains('show-flex')) {
         filterWrap.classList.add('show-flex');
     } else  {
@@ -36,13 +36,11 @@ function useFilter(words) {
         getWords(filtereWords);
         closeFilter();
     });
+    filterBtn[1].addEventListener('click', closeFilter);
 }
 
-
-filterBtn[1].addEventListener('click', closeFilter);
-
 function closeFilter() {
-    filterWrap.classList.remove('show-flex');
+    document.querySelector('.filter-wrap').classList.remove('show-flex');
 }
 
 export {setFilter, useFilter};
