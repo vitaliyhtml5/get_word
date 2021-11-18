@@ -1,5 +1,7 @@
 'use strict';
 
+import {addFavWords, checkFavWords} from './add_fav_words.js';
+
 // Show grid of words
 function showGrid(words, onlyGridsMenu = false) {
     if (!onlyGridsMenu) {
@@ -23,17 +25,20 @@ function showGrid(words, onlyGridsMenu = false) {
 
     addWords(0);
     function addWords(start) {
+        let favCheked;
         for (let i = start; i < numberWords; i++) {
+            localStorage.getItem('favWords') ? favCheked = checkFavWords(words[i].id, 'grid') : '';
             gridWrap.innerHTML += `
-                <div class="words-grid">
-                    <button class="fav-btn material-icons" title="Mark as favorite">star</button>
-                    <img src="img/words/${words[i].image}">
-                    <b>${words[i].english}</b>
-                    <i>${words[i].transcription}</i>
-                    <span>${words[i].russian}</span>
-                </div>`
+            <div class="words-grid">
+                <button class="fav-btn material-icons ${favCheked}" title="Mark as favorite">star</button>
+                <img src="img/words/${words[i].image}">
+                <b class="eng-word">${words[i].english}</b>
+                <i>${words[i].transcription}</i>
+                <span>${words[i].russian}</span>
+            </div>`;
         }
-        loadMoreWords(); 
+        addFavWords(words);
+        loadMoreWords();
     }
     
     function loadMoreWords() {

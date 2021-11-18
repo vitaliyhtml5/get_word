@@ -30,7 +30,7 @@ function addContent(index) {
             <div class="word-img-wrap">
                 <img>
             </div>
-            <b></b>
+            <b class="eng-word"></b>
             <i></i>
             <span></span>
             <div class="btn-wrap">
@@ -41,9 +41,7 @@ function addContent(index) {
         <div class="words-grid-wrap">
             <div class="load-word"><button class="button-main"><span class="material-icons">restart_alt</span>Add more</button>
             </div>
-        </div>
-    
-    `;
+        </div>`;
 }
 
 function addSearchContent() {
@@ -63,8 +61,7 @@ function addSearchContent() {
         <div class="words-grid-wrap">
             <div class="load-word"><button class="button-main"><span class="material-icons">restart_alt</span>Add more</button>
             </div>
-        </div>
-    `;
+        </div>`;
 }
 
 export {addContent, addSearchContent};

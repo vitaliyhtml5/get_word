@@ -1,6 +1,7 @@
 'use strict';
 
 import {hideEnglish} from './hide_english.js';
+import {addFavWords, checkFavWords} from './add_fav_words.js';
 
 // Single slider
 function useSingleSlider(words) {   
@@ -24,6 +25,7 @@ function useSingleSlider(words) {
     changeSlider();
     hideEnglish();
     clearRandom();
+    addFavWords(words);
 
     btn[0].addEventListener('click', moveSliderBack);
     btn[1].addEventListener('click', moveSliderForward);
@@ -61,6 +63,9 @@ function useSingleSlider(words) {
         eng.textContent = words[counter].english;
         sound.textContent = words[counter].transcription;
         ru.textContent = words[counter].russian;
+        if (localStorage.getItem('favWords')) {
+            checkFavWords(words[counter].id, 'single');
+        }
     }
     
     // Switch to random order

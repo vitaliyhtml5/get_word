@@ -5,6 +5,7 @@ import {getWords} from '../script.js';
 import {addContent, addSearchContent} from './add_content.js';
 import {useFilter} from './set_filter.js';
 import {getSearchWords} from './get_search_words.js';
+import {setFavWords} from './add_fav_words.js';
 
 // Changing menu in sidebar
 function changeMenu(allWords) {
@@ -30,12 +31,12 @@ function changeMenu(allWords) {
                 document.querySelector('.search-form').addEventListener('submit', getSearchWords);
             } else if (index === 6) {
                 addContent(0);
-                getWords(allWords);
+                setFavWords(allWords);
                 document.querySelector('.filter-icon').style.display = 'none';
+                document.querySelector('.fav-btn').style.display = 'none';
             }
         });
     });
 }
-
 
 export {changeMenu};

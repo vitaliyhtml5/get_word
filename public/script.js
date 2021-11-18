@@ -5,6 +5,7 @@ import {showGrid} from './scripts/show_grid.js';
 import {useFilter} from './scripts/set_filter.js';
 import {changeMenu} from './scripts/change_menu.js';
 import {addContent} from './scripts/add_content.js';
+// import {addFavWords} from './scripts/add_fav_words.js';
 
 // API queries
 import {getAllWords} from './scripts/get_all_words.js';
@@ -20,6 +21,7 @@ async function getAllWordsAPI() {
     useSingleSlider(allWords);
     getWords(allWords);
     changeMenu(allWords);
+    // addFavWords();
 }
 
 // Change single word/grid
@@ -40,6 +42,5 @@ function getWords(words) {
 
 // Filter
 document.querySelector('.filter-icon').addEventListener('click', () => useFilter(allWords));
-
 
 export {getWords};
