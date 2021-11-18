@@ -53,7 +53,7 @@ function addSearchContent() {
         <div class="set-word-wrap search-form">
             <form class="search-form">
                 <input type="text" autofocus>
-                <button class="button-main" type="button">Search</button>
+                <button class="button-main">Search</button>
             </form>
         </div>
         <div class="search-message">

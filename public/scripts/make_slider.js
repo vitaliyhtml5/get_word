@@ -23,6 +23,7 @@ function useSingleSlider(words) {
     
     changeSlider();
     hideEnglish();
+    clearRandom();
 
     btn[0].addEventListener('click', moveSliderBack);
     btn[1].addEventListener('click', moveSliderForward);
@@ -71,12 +72,15 @@ function useSingleSlider(words) {
             btn[1].textContent = 'Random';
             btn[1].classList.add('random-btn');
         } else {
-            this.classList.add('random-icon_off');
-            random = false;
-            btn[0].style.display = 'block';
-            btn[1].textContent = 'Next';
-            btn[1].classList.remove('random-btn');
+            clearRandom();
         }
+    }
+    function clearRandom() {
+        document.querySelector('.random-icon').classList.add('random-icon_off');
+        random = false;
+        btn[0].style.display = 'block';
+        btn[1].textContent = 'Next';
+        btn[1].classList.remove('random-btn');
     }
 }
 

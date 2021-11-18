@@ -6,7 +6,7 @@ const searchWord = (param, callback) => {
         if (err) {
             callback('No connection to db', undefined);
         } else if (results.length === 0) {
-            callback(undefined, {message: 'not found'});
+            callback(undefined, {message: 'no results found'});
         } else {
             callback(undefined, results);
         }

@@ -4,6 +4,7 @@ import {getCategory} from './get_category.js';
 import {getWords} from '../script.js';
 import {addContent, addSearchContent} from './add_content.js';
 import {useFilter} from './set_filter.js';
+import {getSearchWords} from './get_search_words.js';
 
 // Changing menu in sidebar
 function changeMenu(allWords) {
@@ -25,7 +26,8 @@ function changeMenu(allWords) {
                 document.querySelector('.filter-icon').style.display = 'none';
                 document.querySelector('.sublist-menu').classList.add('nav-item_checked');
             } else if (index === 5) {
-                addSearchContent(); 
+                addSearchContent();
+                document.querySelector('.search-form').addEventListener('submit', getSearchWords);
             } else if (index === 6) {
                 addContent(0);
                 getWords(allWords);

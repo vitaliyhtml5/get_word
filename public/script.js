@@ -42,6 +42,4 @@ function getWords(words) {
 document.querySelector('.filter-icon').addEventListener('click', () => useFilter(allWords));
 
 
-
-
 export {getWords};
