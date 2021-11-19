@@ -40,6 +40,9 @@ function showGrid(words, onlyGridsMenu = false) {
         if (document.querySelector('.fav-words').classList.contains('nav-item_checked')) {
             document.querySelectorAll('.fav-btn').forEach(el => el.style.display = 'none');
         }
+        if (document.documentElement.clientWidth < 769) {
+            gridWrap.innerHTML += `<a href="#header" class="link-top material-icons">expand_less</a>`;
+        }
         addFavWords(words);
         loadMoreWords();
     }

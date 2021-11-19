@@ -5,7 +5,7 @@ import {showGrid} from './scripts/show_grid.js';
 import {useFilter} from './scripts/set_filter.js';
 import {changeMenu} from './scripts/change_menu.js';
 import {addContent} from './scripts/add_content.js';
-// import {addFavWords} from './scripts/add_fav_words.js';
+import {openHamburger} from './scripts/open_hamburger.js';
 
 // API queries
 import {getAllWords} from './scripts/get_all_words.js';
@@ -42,5 +42,8 @@ function getWords(words) {
 
 // Filter
 document.querySelector('.filter-icon').addEventListener('click', () => useFilter(allWords));
+
+//Hamburger menu
+document.querySelector('.hamburger-menu').addEventListener('click',openHamburger);
 
 export {getWords};

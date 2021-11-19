@@ -60,8 +60,9 @@ function checkFavWords(id, view) {
 
 function setFavWords(words) {
     if (!localStorage.getItem('favWords')) {
+        document.querySelector('.word-single-wrap').style.display = 'none';
         document.querySelector('#favorite-word').innerHTML = `
-        <div class="search-message">
+        <div class="search-message fav-words-message">
             <img src="img/no-favorite.png">
             <p>Favorite words need being added</p>
         </div>`;

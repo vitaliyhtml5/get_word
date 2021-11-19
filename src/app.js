@@ -18,6 +18,6 @@ app.get('/get-word', (req, res) => getByCategory(req, res));
 app.get('/search-word', (req, res) => searchWord(req, res));
 
 // 404 error
-app.get('*/*', (req, res) => res.status(404).end());
+app.get('*/*', (req, res) => res.status(404).sendFile(`${path.join(__dirname,'../public')}/404-error.html`));
 
 app.listen(3000, () => console.log('Server is working on 3000 port'));
