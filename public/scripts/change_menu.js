@@ -31,9 +31,9 @@ function changeMenu(allWords) {
                 document.querySelector('.search-form').addEventListener('submit', getSearchWords);
             } else if (index === 6) {
                 addContent(0);
-                setFavWords(allWords);
                 document.querySelector('.filter-icon').style.display = 'none';
                 document.querySelector('.fav-btn').style.display = 'none';
+                setFavWords(allWords);
             }
         });
     });

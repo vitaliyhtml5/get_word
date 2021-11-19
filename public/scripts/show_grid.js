@@ -37,6 +37,9 @@ function showGrid(words, onlyGridsMenu = false) {
                 <span>${words[i].russian}</span>
             </div>`;
         }
+        if (document.querySelector('.fav-words').classList.contains('nav-item_checked')) {
+            document.querySelectorAll('.fav-btn').forEach(el => el.style.display = 'none');
+        }
         addFavWords(words);
         loadMoreWords();
     }

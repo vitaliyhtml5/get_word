@@ -106,6 +106,8 @@ button {
     margin-bottom: 10px !important;
 }
 .category-list {
+    overflow-y: auto;
+    max-height: 290px;
     margin: 12px 0;
 }
 .category-list li {
@@ -387,18 +389,21 @@ button {
 
 /* Scroll */
 .words-grid-wrap::-webkit-scrollbar,
-.filter-wrap::-webkit-scrollbar {
+.filter-wrap::-webkit-scrollbar,
+.category-list::-webkit-scrollbar {
     width: 8px;
     background-color: transparent;
 }
 .words-grid-wrap::-webkit-scrollbar-thumb,
-.filter-wrap::-webkit-scrollbar {
+.filter-wrap::-webkit-scrollbar-thumb,
+.category-list::-webkit-scrollbar-thumb {
     background: #f0efef;
     border-radius: 4px;
 }
 
 .words-grid-wrap::-webkit-scrollbar-thumb:hover,
-.filter-wrap::-webkit-scrollbar {
+.filter-wrap::-webkit-scrollbar-thumb:hover,
+.category-list::-webkit-scrollbar-thumb:hover {
     background: #dea6f8;
 }
 

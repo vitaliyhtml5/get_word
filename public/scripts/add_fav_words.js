@@ -1,9 +1,8 @@
 'use strict';
 
-// Add favorite words into LocalStorage
-
 import {getWords} from '../script.js';
 
+// Add favorite words into LocalStorage
 function addFavWords(words) {
     const favBtn = document.querySelectorAll('.fav-btn');
     const word = document.querySelectorAll('.eng-word');
@@ -54,18 +53,17 @@ function checkFavWords(id, view) {
         }
     }
 
-    if (view === 'grid') {    
+    if (view === 'grid') {
         if (storageArr.includes(String(id))) return 'fav-btn_checked';
     }
 }
 
 function setFavWords(words) {
     if (!localStorage.getItem('favWords')) {
-        document.querySelector('.word-single-wrap').style.display = 'none';
         document.querySelector('#favorite-word').innerHTML = `
         <div class="search-message">
             <img src="img/no-favorite.png">
-            <p>Favorite words hasn't been chosen</p>
+            <p>Favorite words need being added</p>
         </div>`;
     } else {
         let storageArr = localStorage.getItem('favWords').split(',');
