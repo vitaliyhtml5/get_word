@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin panel</title>
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <header id="header">
+        <div class="container">
+            <div class="header-wrap">
+                <img src="img/logo.png" alt="Logo for Get word">
+                <h1>Get a word</h1>
+                <b>Admin Panel</b>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="content-wrap">
+                <aside id="aside" style="display: none;">
+                    <ul class="nav-list">
+                        <li class="nav-item_checked menu-item"><span class="material-icons">settings
+                        </span>Manage word</li>
+                        <li class="menu-item"><span class="material-icons">widgets</span>Manage category</li>
+                        <li class="menu-item fav-words"><span class="material-icons">library_add</span>Add word</li>
+                    </ul>
+                    <span class="hide-sidebar"><span class="material-icons">west</span>Hide sidebar</span>
+                </aside>
+                <div id="main-wrap">
+                    <div class="loader"></div>
+                    <div id="manage-word" class="data-wrap">
+                        <form class="search-form">
+                            <input type="text" autofocus>
+                            <button class="button-main">Search</button>
+                        </form>
+                        <ul class="set-word-wrap">
+                            <li class="material-icons filter-icon" title="Filter">filter_alt</li>
+                        </ul>
+                        <div class="filter-wrap">
+                            <h3>Choose category</h3>
+                            <label><input type="checkbox" value="animals"><span></span>animals</label>
+                            <label><input type="checkbox" value="food"><span></span>food</label>
+                            <label><input type="checkbox" value="fruit"><span></span>fruit</label>
+                            <label><input type="checkbox" value="job"><span></span>job</label>
+                            <div class="filter-btn-wrap">
+                                <button class="button-main" type="button">Apply filter</button>
+                                <button class="button-main" type="button">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-main-wrap">
+                        <table class="table-main">
+                            <tr>
+                                <th>id<button class="material-icons sort-btn">south</button></th>
+                                <th>english<button class="material-icons sort-btn">south</button></th>
+                                <th>transcription</th>
+                                <th>russian<button class="material-icons sort-btn">south</button></th>
+                                <th>image</th>
+                                <th>category<button class="material-icons sort-btn">south</button></th>
+                                <th>action</th>
+                            </tr>
+                        </table>
+                        <div class="load-word"><button class="button-main"><span class="material-icons">restart_alt</span>Add more</button>
+                        </div>
+                    </div>    
+                    <!-- <div id="manage-category"></div>
+                    <div id="add-word" class="words-section"></div> -->
+                </div>
+            </div>
+        </div>
+    </main>
+    <script type="module" src="admin.js"></script>
+</body>
+</html>
