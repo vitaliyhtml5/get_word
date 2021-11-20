@@ -15,7 +15,8 @@
 #aside {
     width: 270px;
 }
-.hide-sidebar {
+.hide-sidebar,
+.filter-clear {
     display: block;
     height: 20px;
     margin-left: 12px;
@@ -24,7 +25,8 @@
     transition: .4s;
     cursor: pointer;
 }
-.hide-sidebar:hover {
+.hide-sidebar:hover,
+.filter-clear:hover {
     color: #b105ff;
 }
 .hide-sidebar .material-icons {
@@ -37,14 +39,21 @@
 .data-wrap {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 30px;
 }
 .set-word-wrap {
+    width: 25px;
     padding: 0;
     border: none;
 }
 .filter-wrap {
     top: 48px;
+}
+.filter-clear {
+    display: none;
+    margin: 0 12px 0 auto;
+    line-height: 19px;
 }
 
 /* Table */
@@ -60,6 +69,9 @@
 .table-main {
     width: 100%;
     border-collapse: collapse;
+    border-bottom-color: #c85acc66;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
     text-align: center;
 }
 td,th {
@@ -120,11 +132,12 @@ td {
 .sort-btn {
     width: 25px;
     height: 18px;
-    line-height: 18px !important;
     margin-left: 0;
     color: #fff;
+    opacity: 0.5;
     font-size: 16px !important;
     font-weight: 700 !important;
+    line-height: 18px !important;
     background-color: transparent;
 }
 .sort-btn:hover {
@@ -133,4 +146,7 @@ td {
 .load-word button {
     width: 170px;
     padding: 10px;
+}
+.error-page {
+    display: none;
 }

@@ -15,10 +15,12 @@ function addContent(index) {
         </ul>
         <div class="filter-wrap">
             <h3>Choose category</h3>
-            <label><input type="checkbox" value="animals"><span></span>animals</label>
-            <label><input type="checkbox" value="food"><span></span>food</label>
-            <label><input type="checkbox" value="fruit"><span></span>fruit</label>
-            <label><input type="checkbox" value="job"><span></span>job</label>
+            <div class="category-wrap">
+                <label><input type="checkbox" value="animals"><span></span>animals</label>
+                <label><input type="checkbox" value="food"><span></span>food</label>
+                <label><input type="checkbox" value="fruit"><span></span>fruit</label>
+                <label><input type="checkbox" value="job"><span></span>job</label>
+            </div>
             <div class="filter-btn-wrap">
                 <button class="button-main" type="button">Apply filter</button>
                 <button class="button-main" type="button">Cancel</button>
