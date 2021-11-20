@@ -570,9 +570,16 @@ button {
         left: 5px;
         top: -65px;
     }
+    .words-grid-wrap {
+        font-size: 14px;
+        gap: 15px;
+    }
     .words-grid {
-        width: 85%;
-        height: 200px;
+        width: 47%;
+        height: 160px;
+    }
+    .words-grid img {
+        width: 70px;
     }
     .btn-wrap {
         width: 100% !important;
