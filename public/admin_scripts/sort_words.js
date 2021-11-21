@@ -4,8 +4,9 @@ import {setFilter} from './use_filter.js';
 import {createMainTable} from './create_main_table.js';
 
 //Sort words by id, eng, rus, category
-function sortWords(words) {
-    const columns = ['id', 'english', 'russian', 'category'];
+function sortWords(words, type = 'words') {
+    let columns;
+    type === 'words' ? columns = ['id', 'english', 'russian', 'category'] : columns = ['id', 'name'];
     const sortBtn = document.querySelectorAll('.sort-btn');
 
     sortBtn.forEach((el, index) => {
@@ -23,11 +24,16 @@ function sortWords(words) {
     });
 
     function makeSorting(param, order) {
-        let filteredWords = setFilter(words);
-        const allWords = setOrderSorting(filteredWords, param, order);
+        let allWords;
+        if (type === 'words') {
+            let filteredWords = setFilter(words);
+            allWords = setOrderSorting(filteredWords, param, order);
+        } else if (type === 'category') {
+            allWords = setOrderSorting(words, param, order);
+        }
         document.querySelector('.table-main tbody').innerHTML = ``;
         document.querySelector('.search-form input').value = '';
-        createMainTable(allWords);
+        type === 'words' ? createMainTable(allWords, 'words') : createMainTable(allWords, 'category');
     }
 
     function setOrderSorting(filteredWords, param, order) {
@@ -36,6 +42,7 @@ function sortWords(words) {
                 if (param === 'english')return a.english > b.english ? 1 : -1;
                 else if (param === 'russian')return a.russian > b.russian ? 1 : -1;
                 else if (param === 'category')return a.category > b.category ? 1 : -1;
+                else if (param === 'name')return a.name > b.name ? 1 : -1;
                 else return a.id > b.id ? 1 : -1;
             });
         } else if (order === 'desc') {
@@ -43,6 +50,7 @@ function sortWords(words) {
                 if (param === 'english')return a.english < b.english ? 1 : -1;
                 else if (param === 'russian')return a.russian < b.russian ? 1 : -1;
                 else if (param === 'category')return a.category < b.category ? 1 : -1;
+                else if (param === 'name')return a.name < b.name ? 1 : -1;
                 else return a.id < b.id ? 1 : -1;
             });
         }

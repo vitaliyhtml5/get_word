@@ -27,6 +27,8 @@ async function getCategoryAPI() {
     const data = await getAllCategory();
     allCategory = data;
     createMainTable(data,'category');
+    searchWord(allCategory, 'category');
+    sortWords(allCategory, 'category');
 }
 
 function changeMenu(allWords) {
