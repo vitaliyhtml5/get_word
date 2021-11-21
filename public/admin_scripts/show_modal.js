@@ -1,9 +1,11 @@
 'use strict';
 
-import {addModalImage} from "./add_content.js";
-import {getWordIndex} from "./get_word_index.js";
+import {addModalImage, addCategoryModal} from './add_content.js';
+import {getWordIndex} from './get_word_index.js';
+import {createCategory} from './update_data/create_category.js';
 
 const overlay = document.querySelector('.overlay');
+
 
 // Show modal with image
 function showModalImage(words) {
@@ -19,6 +21,20 @@ function showModalImage(words) {
     });
 }
 
+// Create a new category
+function createCategoryModal(category) {
+    document.querySelector('.create-categoty-btn').addEventListener('click', () => {
+        addCategoryModal();
+        openModal();
+        document.querySelector('.modal input').focus();
+        closeModal(document.querySelectorAll('.modal-confirm button')[1]);
+        document.querySelector('.modal').addEventListener('submit', (e) => {
+            e.preventDefault();
+            createCategory(category);
+        });
+    });
+}
+
 // Open modal
 function openModal() {
     overlay.style.animation = 'openModal 0.8s forwards';
@@ -26,8 +42,6 @@ function openModal() {
 
 // Close modal
 function closeModal(btn) {
-    document.querySelector('.modal').onclick = e => e.stopPropagation();
-    overlay.addEventListener('click', removeModal);
     btn.addEventListener('click', removeModal);
     document.addEventListener('keydown', e => {
         if (e.code === 'Escape') {
@@ -41,4 +55,4 @@ function removeModal() {
     overlay.innerHTML = '';
 }
 
-export {showModalImage};
+export {showModalImage, createCategoryModal, closeModal, removeModal};

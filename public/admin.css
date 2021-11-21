@@ -195,6 +195,7 @@ td {
     text-align: center;
     transform: translateX(-50%);
 }
+/* Show image modal */
 .modal-img {
     display: flex;
     flex-direction: column;
@@ -217,8 +218,60 @@ td {
     padding: 10px;
 }
 
-/* Animation */
+/* Image confirm */
+.modal-confirm {
+    width: 450px;
+    padding: 20px 30px;
+}
+.modal-confirm h3 {
+    padding-bottom: 30px;
+    font-size: 24px;
+}
+.modal label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: left;
+}
+.modal input {
+    width: 100%;
+}
+.modal .error-message {
+    display: none;
+    padding-left: 5px;
+    color: #ff6969;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: left;
+}
+.modal-confirm .btn-wrap {
+    width: 210px;
+    margin: 0 0 5px auto;
+}
+.modal-confirm button {
+    width: 100px;
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid transparent;
+}
+.modal-confirm button:nth-child(2) {
+    margin-left: 5px;
+    border: 1px solid #bb82fc;
+    color: #bb82fc;
+    background-color: transparent;
+}
+.modal-confirm button:nth-child(2):hover {
+    background-color: #f5eaff;
+}
+.modal-confirm button:nth-child(2):active {
+    background-color: #ecdcff;
+}
 
+
+
+
+/* Animation */
 @keyframes openModal {
     0% {
         opacity: 0;

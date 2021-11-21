@@ -367,7 +367,8 @@ button {
 .search-form {
     display: flex;
 }
-.search-form input {
+.search-form input,
+.modal input {
     width: 230px;
     margin-right: 2px;
     padding: 8px;
@@ -376,7 +377,8 @@ button {
     color: #626161;
     font: 500 18px Raleway, Arial, Helvetica, sans-serif;
 }
-.search-form input:focus {
+.search-form input:focus,
+.modal input:focus {
     border-color: #8a0ac5;
 }
 .search-form button {
