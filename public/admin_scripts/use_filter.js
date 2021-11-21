@@ -36,6 +36,7 @@ function useFilter(words) {
 
 function getFilter(words) {
     const categoryWrap = document.querySelector('.category-wrap');
+    document.querySelector('.filter-icon').addEventListener('click', () => useFilter(words));
     const categoryAll = words.map(item => item.category);
     const category = Array.from(new Set(categoryAll));
 

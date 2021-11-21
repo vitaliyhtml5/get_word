@@ -8,12 +8,12 @@ app.use(express.static(path.join(__dirname, '../public'), {
 
 const connection = require('./db/dbc.js');
 const getAll = require('./get_all.js');
-const getByCategory = require('./get_by_category.js');
+const getCategory = require('./get_category.js');
 const searchWord = require('./search_word.js');
 
 app.get('/get-all-words', (req, res) => getAll(req, res));
 
-app.get('/get-word', (req, res) => getByCategory(req, res));
+app.get('/get-category', (req, res) => getCategory(req, res));
 
 app.get('/search-word', (req, res) => searchWord(req, res));
 

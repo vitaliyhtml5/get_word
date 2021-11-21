@@ -1,7 +1,7 @@
 'use strict';
 
 // Create table + pagination
-function createMainTable(words) {
+function createMainTable(words, type ='words') {
     const table = document.querySelector('.table-main tbody');
     const paginationBtn = document.querySelector('.load-word>button');
  
@@ -21,7 +21,8 @@ function createMainTable(words) {
 
     function fillTable(start) {
         for (let i = start; i < numberWords; i++) {
-            table.innerHTML += `
+            if (type === 'words') {
+                table.innerHTML += `
                 <tr>
                     <td>${words[i].id}</td>
                     <td>${words[i].english}</td>
@@ -36,6 +37,19 @@ function createMainTable(words) {
                         </ul>
                     </td>
                 </tr>`;
+            } else if (type === 'category') {
+                table.innerHTML += `
+                <tr>
+                    <td>${words[i].id}</td>
+                    <td>${words[i].name}</td>
+                    <td>
+                        <ul class="action-list">
+                            <li><span class="material-icons">edit</span>Edit</li>
+                            <li><span class="material-icons">delete</span>Remove</li>
+                        </ul>
+                    </td>
+                </tr>`;
+            }
         }
         loadMoreWords();
     }
