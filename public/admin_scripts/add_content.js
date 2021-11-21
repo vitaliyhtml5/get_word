@@ -69,4 +69,15 @@ function addContent(index) {
     }
 }
 
-export {addContent};
+// Add content for modal with image
+
+function addModalImage(word, image) {
+    document.querySelector('.overlay').innerHTML = `
+    <div class="modal modal-img">
+        <img src="img/words/${image}">
+        <b>${word}</b>
+        <button class="button-main">Close</button>
+    </div>`;
+}
+
+export {addContent, addModalImage};

@@ -1,5 +1,7 @@
 'use strict';
 
+import {showModalImage} from "./show_modal.js";
+
 // Create table + pagination
 function createMainTable(words, type ='words') {
     const table = document.querySelector('.table-main tbody');
@@ -55,6 +57,7 @@ function createMainTable(words, type ='words') {
     }
 
     function loadMoreWords() {
+        showModalImage(words);
         paginationBtn.onclick = (e) => {
             if ((numberWords + numberRows) < words.length) {
                 numberWords += numberRows;
