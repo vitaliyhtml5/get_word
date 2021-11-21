@@ -2,7 +2,8 @@
 
 import {setFilter} from './use_filter.js';
 import {createMainTable} from './create_main_table.js';
-import {showErrorImg} from './show_error.js'
+import {emptyState} from './empty_state.js';
+import {clearSortState} from './sort_words.js';
 
 // Search by EventTarget, ru, category
 function searchWord(words) {
@@ -23,11 +24,13 @@ function searchWord(words) {
         if (searchWords.length > 0) {
             table.style.display = 'block';
             document.querySelector('.error-page').style.display = 'none';
+            clearSortState();
+            searchWords.sort((a, b) => a.id > b.id ? 1 : -1);
             document.querySelector('.table-main tbody').innerHTML = ``;
             createMainTable(searchWords);
         } else {
             table.style.display = 'none';
-            showErrorImg('img/no-results.png', 'Oops! No results found');
+            emptyState('img/no-results.png', 'Oops! No results found');
         }
     });  
 }

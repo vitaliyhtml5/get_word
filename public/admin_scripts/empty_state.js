@@ -1,7 +1,7 @@
 'use sctrict';
 
 //show errors
-function showErrorImg(img, text) {
+function emptyState(img, text) {
     const errorPage = document.querySelector('.error-page');
     errorPage.style.display = 'block';
     errorPage.innerHTML = `
@@ -9,4 +9,4 @@ function showErrorImg(img, text) {
         <p>${text}</p>`;
 }
 
-export {showErrorImg};
+export {emptyState};

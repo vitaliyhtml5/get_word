@@ -1,6 +1,7 @@
 'use strict';
 
 import {createMainTable} from './create_main_table.js';
+import {clearSortState} from './sort_words.js';
 
 //Open,close filter and get filtered results
 function useFilter(words) {
@@ -25,8 +26,10 @@ function useFilter(words) {
     function getfilteredTable() {
         let filtereWords = setFilter(words);
         document.querySelector('.table-main tbody').innerHTML = ``;
+        filtereWords.sort((a, b) => a.id > b.id ? 1 : -1);
         createMainTable(filtereWords);
         setClearFilter();
+        clearSortState();
         closeFilter();
     }
 }

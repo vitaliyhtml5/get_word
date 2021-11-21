@@ -143,6 +143,14 @@ td {
 .sort-btn:hover {
     opacity: 1;
 }
+.sort-asc {
+    transform: rotate(-180deg);
+    opacity: 1;
+}
+.sort-desc {
+    transform: rotate(0deg);
+    opacity: 1;
+}
 .load-word button {
     width: 170px;
     padding: 10px;
