@@ -33,7 +33,7 @@ CREATE TABLE `words` (
   `transcription` varchar(20) DEFAULT NULL,
   `russian` varchar(20) DEFAULT NULL,
   `image` varchar(20) DEFAULT NULL,
-  `category` varchar(20) DEFAULT NULL
+  `category_id` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
