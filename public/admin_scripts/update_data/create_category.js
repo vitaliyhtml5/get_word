@@ -4,6 +4,7 @@ import {checkFields, checkUniqueCategory} from './check_fields.js';
 import {removeModal} from '../show_modal.js';
 import {showErrorInput, clearError} from './show_error.js';
 import {getCategoryAPI} from '../../admin.js';
+import {showAlert} from '../show_alert.js';
 
 // Create a new category
 function createCategory(category) {
@@ -32,6 +33,7 @@ function createCategory(category) {
         } else {
             document.querySelector('.table-main tbody').innerHTML = ``;
             getCategoryAPI();
+            showAlert('Category was created');
             removeModal();
         }
     } 

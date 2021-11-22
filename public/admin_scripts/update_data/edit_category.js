@@ -4,6 +4,7 @@ import {checkFields, checkUniqueCategory} from './check_fields.js';
 import {removeModal} from '../show_modal.js';
 import {showErrorInput, clearError} from './show_error.js';
 import {getCategoryAPI} from '../../admin.js';
+import {showAlert} from '../show_alert.js';
 
 // Edit category
 function editCategory(category, category_id) {
@@ -34,6 +35,7 @@ function editCategory(category, category_id) {
         } else {
             document.querySelector('.table-main tbody').innerHTML = ``;
             getCategoryAPI();
+            showAlert('Category was edited');
             removeModal();
         }
     } 

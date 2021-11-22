@@ -120,4 +120,27 @@ function addRemoveCategoryModal(name) {
     </form>`;
 }
 
-export {addContent, addModalImage, addCategoryModal, addEditCategoryModal, addRemoveCategoryModal};
+function addRemoveWordModal(img, name) {
+    document.querySelector('.overlay').innerHTML = `
+    <form class="modal modal-confirm modal-remove-words">
+        <h3>Remove word</h3>
+        <p>Are you sure you want to remove it?</p>
+        <div class="modal-preview-word">
+            <img src="img/words/${img}">
+            <b>${name}</b>
+        </div>
+        <div class="btn-wrap">
+            <button class="button-main button-remove">Remove</button>
+            <button class="button-main" type="button">Cancel</button>
+        </div>
+    </form>`;
+}
+
+function addAlert(text) {
+    document.querySelector('.alert-wrap').innerHTML = `
+        <span class="material-icons">error_outline</span>
+        <p>${text}</p>
+        <button class="material-icons">close</button>`;
+}
+
+export {addContent,addAlert,addModalImage,addCategoryModal,addEditCategoryModal,addRemoveCategoryModal,addRemoveWordModal};

@@ -2,6 +2,7 @@
 
 import {removeModal} from '../show_modal.js';
 import {getCategoryAPI} from '../../admin.js';
+import {showAlert} from '../show_alert.js';
 
 // Remove category
 async function removeCategory(category_id) {
@@ -13,6 +14,7 @@ async function removeCategory(category_id) {
     if (res.message === 'category was removed') {
         document.querySelector('.table-main tbody').innerHTML = ``;
         getCategoryAPI();
+        showAlert('Category was removed');
         removeModal();
     }
 }

@@ -1,6 +1,6 @@
 'use strict';
 
-import {showModalImage,editCategoryModal,removeCategoryModal} from "./show_modal.js";
+import {showModalImage,editCategoryModal,removeCategoryModal,removeWordModal} from "./show_modal.js";
 
 // Create table + pagination
 function createMainTable(words, type ='words') {
@@ -60,6 +60,7 @@ function createMainTable(words, type ='words') {
         showModalImage(words);
         editCategoryModal(words);
         removeCategoryModal(words);
+        removeWordModal(words);
         paginationBtn.onclick = (e) => {
             if ((numberWords + numberRows) < words.length) {
                 numberWords += numberRows;

@@ -3,6 +3,9 @@
 import {createMainTable} from './create_main_table.js';
 import {clearSortState} from './sort_words.js';
 
+
+// !!!! Need to fix bug when filter does not open after removing a word
+
 //Open,close filter and get filtered results
 function useFilter(words) {
     const filterIcon = document.querySelector('.filter-icon');
@@ -13,7 +16,7 @@ function useFilter(words) {
     const closeFilter = () => filterWrap.classList.remove('show-flex');
 
     // Open-close
-    !filterWrap.classList.contains('show-flex') ? openFilter() : closeFilter()
+    !filterWrap.classList.contains('show-flex') ? openFilter() : closeFilter();
     filterBtn[1].addEventListener('click', closeFilter);
 
     // Set filter
@@ -39,6 +42,7 @@ function getFilter(words) {
     document.querySelector('.filter-icon').addEventListener('click', () => useFilter(words));
     const categoryAll = words.map(item => item.category);
     const category = Array.from(new Set(categoryAll));
+    categoryWrap.innerHTML = ``;
 
     for (let i in category) {
         categoryWrap.innerHTML += ` 
