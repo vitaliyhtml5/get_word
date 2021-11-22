@@ -1,19 +1,20 @@
 const validator = require('validator');
 const connection = require('./dbc.js');
 
-const insertCategory = (categoryName, callback) => {
+const updateCategory = (categoryName, categoryId, callback) => {
+    
     if (!validator.isAlpha(categoryName,'en-US', {ignore:' '}) && !validator.isAlpha(categoryName,'en-US', {ignore:'-'}) && !validator.isAlpha(categoryName,'en-US', {ignore:'\''})) {
         callback('Non-english chars', undefined);
     } else {
-        const q = `INSERT INTO category (name) VALUES ("${categoryName}");`;
+        const q = `UPDATE category SET name = "${categoryName}" WHERE id = ${categoryId};`;
         connection.query(q, (err, results) => {
             if (err) {
                 callback('No connection to db', undefined);
             } else {
-                callback(undefined, {message:'category was added'});
+                callback(undefined, {message:'category was edited'});
             }
         });
     }
 }
 
-module.exports = insertCategory;
+module.exports = updateCategory;

@@ -1,8 +1,10 @@
 'use strict';
 
-import {addModalImage, addCategoryModal} from './add_content.js';
+import {addModalImage,addCategoryModal,addEditCategoryModal,addRemoveCategoryModal} from './add_content.js';
 import {getWordIndex} from './get_word_index.js';
 import {createCategory} from './update_data/create_category.js';
+import {editCategory} from './update_data/edit_category.js';
+import {removeCategory} from './update_data/remove_category.js';
 
 const overlay = document.querySelector('.overlay');
 
@@ -17,6 +19,7 @@ function showModalImage(words) {
 
             addModalImage(words[getWordIndex(words,id)].english, words[getWordIndex(words,id)].image);
             closeModal(document.querySelector('.modal-img button'));
+            closeModalOutside();
         }
     });
 }
@@ -35,6 +38,44 @@ function createCategoryModal(category) {
     });
 }
 
+// Edit current category
+function editCategoryModal(category) {
+    document.querySelectorAll('.action-list li:first-child').forEach((el, index) => {
+        el.onclick = () => {
+            addEditCategoryModal();
+            openModal();
+            const id = document.querySelectorAll('.table-main tbody tr td:nth-child(1)')[index].textContent;
+            document.querySelector('.modal input').value = category[getWordIndex(category, id)].name;
+            document.querySelector('.modal input').focus();
+            closeModal(document.querySelectorAll('.modal-confirm button')[1]);
+
+            document.querySelector('.modal').addEventListener('submit', (e) => {
+                e.preventDefault();
+                editCategory(category, category[getWordIndex(category, id)].id);
+            });
+        }
+    });
+}
+
+// Remove category
+function removeCategoryModal(category) {
+    document.querySelectorAll('.action-list li:last-child').forEach((el, index) => {
+        el.onclick = () => {
+            const id = document.querySelectorAll('.table-main tbody tr td:nth-child(1)')[index].textContent;
+            addRemoveCategoryModal(category[getWordIndex(category, id)].name);
+            openModal();
+            closeModal(document.querySelectorAll('.modal-confirm button')[1]);
+            closeModalOutside();
+
+            document.querySelector('.modal').addEventListener('submit', (e) => {
+                e.preventDefault();
+                removeCategory(category[getWordIndex(category, id)].id);
+            });
+        }
+    });
+}
+
+
 // Open modal
 function openModal() {
     overlay.style.animation = 'openModal 0.8s forwards';
@@ -42,6 +83,7 @@ function openModal() {
 
 // Close modal
 function closeModal(btn) {
+    overlay.removeEventListener('click', removeModal);
     btn.addEventListener('click', removeModal);
     document.addEventListener('keydown', e => {
         if (e.code === 'Escape') {
@@ -50,9 +92,15 @@ function closeModal(btn) {
     });
 }
 
+// Close modal after click outside of modal
+function closeModalOutside() {
+    document.querySelector('.modal').addEventListener('click', e => e.stopPropagation());
+    overlay.addEventListener('click', removeModal);
+}
+
 function removeModal() {
     overlay.style.animation = 'closeModal 0.5s forwards';
     overlay.innerHTML = '';
 }
 
-export {showModalImage, createCategoryModal, closeModal, removeModal};
+export {showModalImage, createCategoryModal, editCategoryModal, removeCategoryModal, closeModal, removeModal};

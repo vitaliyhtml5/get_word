@@ -90,8 +90,34 @@ function addCategoryModal() {
         <div class="btn-wrap">
             <button class="button-main">Create</button>
             <button class="button-main" type="button">Close</button>
-        </form>
-    </div>`;
+        </div>
+    </form>`;
 }
 
-export {addContent, addModalImage, addCategoryModal};
+function addEditCategoryModal() {
+    document.querySelector('.overlay').innerHTML = `
+    <form class="modal modal-confirm modal-add-category">
+        <h3>Edit category</h3>
+        <label>Add a new name:</label>
+        <input type="text" autofocus>
+        <span class="error-message"></span>
+        <div class="btn-wrap">
+            <button class="button-main">Edit</button>
+            <button class="button-main" type="button">Close</button>
+        </div>
+    </form>`;
+}
+
+function addRemoveCategoryModal(name) {
+    document.querySelector('.overlay').innerHTML = `
+    <form class="modal modal-confirm modal-remove-category">
+        <h3>Remove category</h3>
+        <p>Are you sure you want to remove <b>${name}</b> category? All words of this category will be deleted</p>
+        <div class="btn-wrap">
+            <button class="button-main button-remove">Remove</button>
+            <button class="button-main" type="button">Cancel</button>
+        </div>
+    </form>`;
+}
+
+export {addContent, addModalImage, addCategoryModal, addEditCategoryModal, addRemoveCategoryModal};

@@ -131,7 +131,7 @@ td {
 }
 /* Manage category */
 .create-categoty-btn {
-    width: 155px;
+    width: 160px;
     padding: 8px 0;
 }
 .create-categoty-btn span {
@@ -268,8 +268,31 @@ td {
     background-color: #ecdcff;
 }
 
-
-
+/* Modal remove */
+.modal-remove-category {
+    min-height: 220px;
+}
+.modal-remove-category h3 {
+    padding-bottom: 20px;
+}
+.modal-remove-category p {
+    font-size: 18px;
+    line-height: 29px;
+    width: 88%;
+    margin: 0 auto 10px;
+}
+.modal-remove-category b {
+    color: #a108e7;
+}
+.button-remove {
+    background-color: #ff6969;
+}
+.button-remove:hover {
+    background-color: #fd5b5b;
+}
+.button-remove:active {
+    background-color: #ee5353;
+}
 
 /* Animation */
 @keyframes openModal {
