@@ -6,7 +6,7 @@ import {createMainTable} from './admin_scripts/create_main_table.js';
 import {getFilter} from './admin_scripts/use_filter.js';
 import {searchWord} from './admin_scripts/search_word.js';
 import {sortWords} from './admin_scripts/sort_words.js';
-import {showModalImage,createCategoryModal,editCategoryModal, removeCategoryModal} from './admin_scripts/show_modal.js';
+import {showModalImage,createCategoryModal,editCategoryModal,removeCategoryModal,removeWordModal} from './admin_scripts/show_modal.js';
 
 //Admin Panel
 addContent(0);
@@ -23,6 +23,7 @@ async function getDataAPI() {
     searchWord(allWords);
     sortWords(allWords);
     showModalImage(allWords);
+    removeWordModal(allWords);
 }
 
 async function getCategoryAPI() {
@@ -63,5 +64,5 @@ function changeMenu(allWords) {
     });
 }
 
-export {getCategoryAPI};
+export {getCategoryAPI,getDataAPI};
 
