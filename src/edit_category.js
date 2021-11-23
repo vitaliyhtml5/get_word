@@ -8,7 +8,7 @@ const editCategory = (req, res) => {
             } else if (err === 'Non-english chars') {
                 res.status(400).send({code: 400, message:'non-english chars'});
             } else {
-                res.status(201).send(data);
+                res.send(data);
             }
         } catch(e) {
             res.status(500).send('something went wrong');

@@ -13,6 +13,7 @@ const getCategory = require('./get_category.js');
 const searchWord = require('./search_word.js');
 const addCategory = require('./add_category.js');
 const editCategory = require('./edit_category.js');
+const editWord = require('./edit_word.js');
 const removeCategory = require('./remove_category.js');
 const removeWord = require('./remove_word.js');
 
@@ -23,6 +24,7 @@ app.get('/search-word', (req, res) => searchWord(req, res));
 app.post('/add-category', (req, res) => addCategory(req, res));
 
 app.put('/edit-category', (req, res) => editCategory(req, res));
+app.put('/edit-word', (req, res) => editWord(req, res));
 
 app.delete('/remove-category', (req, res) => removeCategory(req, res));
 app.delete('/remove-word', (req, res) => removeWord(req, res));
