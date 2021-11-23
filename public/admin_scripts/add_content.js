@@ -136,6 +136,29 @@ function addRemoveWordModal(img, name) {
     </form>`;
 }
 
+function addEditWordModal(english, transcription, russian) {
+    document.querySelector('.overlay').innerHTML = `
+    <form class="modal modal-confirm form-add-word">
+        <h3>Edit word</h3>
+        <div class="dropdown-list-wrap">
+            <ul class="dropdown-list"></ul>
+        </div>
+        <label>Edit english:</label>
+        <input type="text" value="${english}"><span class="error-message"></span>
+        <label>Edit transcription:</label>
+        <input type="text" value="${transcription}"><span class="error-message"></span>
+        <label>Edit russian:</label>
+        <input type="text" value="${russian}"><span class="error-message"></span>
+        <label class="download-wrap" for="file-upload"><span class="material-icons">file_download</span>Download image</label>
+        <span class="error-message"></span>
+        <input type="file" id="file-upload">
+        <div class="btn-wrap">
+            <button class="button-main">Edit</button>
+            <button class="button-main" type="button">Close</button>
+        </div>
+    </form>`;
+}
+
 function addAlert(text) {
     document.querySelector('.alert-wrap').innerHTML = `
         <span class="material-icons">error_outline</span>
@@ -143,4 +166,4 @@ function addAlert(text) {
         <button class="material-icons">close</button>`;
 }
 
-export {addContent,addAlert,addModalImage,addCategoryModal,addEditCategoryModal,addRemoveCategoryModal,addRemoveWordModal};
+export {addContent,addAlert,addModalImage,addCategoryModal,addEditCategoryModal,addRemoveCategoryModal,addEditWordModal,addRemoveWordModal};

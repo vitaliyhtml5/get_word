@@ -140,6 +140,12 @@ td {
     vertical-align: text-bottom;
 }
 
+/* Add word */
+.form-add-word label,
+.dropdown-list-wrap {
+    margin-top: 20px;
+}
+
 /* Other */
 .sort-btn {
     width: 25px;
@@ -170,6 +176,66 @@ td {
 .error-page {
     display: none;
 }
+/* Dropdown */
+.dropdown-list-wrap {
+    position: relative;
+    height: 40px;
+}
+.dropdown-list,
+.download-wrap {
+    position: relative;
+    overflow-y: hidden;
+    height: 42px;
+    margin-top: 0;
+    border: 1px solid #b61ffb;
+    border-radius: 4px;
+    background-color: #fff;
+}
+.dropdown-list {
+    position: absolute;
+    width: 100%;
+    max-height: 250px;
+}
+.dropdown-list .material-icons {
+    position: absolute;
+    right: 10px;
+    transition: .4s;
+    transform-origin: 50% 50%;
+}
+.dropdown-list li {
+    padding: 8px 40px 8px 12px;
+    transition: .4s;
+    cursor: pointer;
+}
+.default-value {
+    position: relative;
+    font-weight: 500;
+}
+.dropdown-list li:hover {
+    background-color: #f8eaff;
+}
+.default-value:hover .material-icons {
+    color: #b61ffb;
+}
+.download-wrap {
+    display: block;
+    height: 42px;
+    margin: 32px auto 20px !important;
+    color: #fafafa;
+    font-weight: 700 !important;
+    letter-spacing: 0.8px;
+    line-height: 40px;
+    background-color: #b61ffb;
+    text-align: center !important;
+    transition: .4s;
+    cursor: pointer;
+}
+.download-wrap .material-icons {
+    vertical-align: text-bottom;
+}
+#file-upload {
+    display: none;
+} 
 .alert-wrap {
     position: fixed;
     z-index: -2;
@@ -253,7 +319,8 @@ td {
     padding-bottom: 30px;
     font-size: 24px;
 }
-.modal label {
+.modal label,
+.dropdown-list-wrap {
     display: block;
     margin-bottom: 10px;
     font-size: 18px;

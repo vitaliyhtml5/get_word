@@ -227,10 +227,12 @@ button {
     font-weight: 700;
 	background-color: #b61ffb;
 }
-.button-main:hover {
+.button-main:hover,
+.download-wrap:hover {
     background-color: #a108e7;
 }
-.button-main:active {
+.button-main:active,
+.download-wrap:active {
     background-color: #8a0ac5;
 }
 .random-icon_off,
@@ -414,14 +416,16 @@ button {
 .words-grid-wrap::-webkit-scrollbar,
 .filter-wrap::-webkit-scrollbar,
 .category-list::-webkit-scrollbar,
-.table-main-wrap::-webkit-scrollbar {
+.table-main-wrap::-webkit-scrollbar,
+.dropdown-list::-webkit-scrollbar {
     width: 8px;
     background-color: transparent;
 }
 .words-grid-wrap::-webkit-scrollbar-thumb,
 .filter-wrap::-webkit-scrollbar-thumb,
 .category-list::-webkit-scrollbar-thumb,
-.table-main-wrap::-webkit-scrollbar-thumb {
+.table-main-wrap::-webkit-scrollbar-thumb,
+.dropdown-list::-webkit-scrollbar-thumb {
     background: #f0efef;
     border-radius: 4px;
 }
@@ -429,7 +433,8 @@ button {
 .words-grid-wrap::-webkit-scrollbar-thumb:hover,
 .filter-wrap::-webkit-scrollbar-thumb:hover,
 .category-list::-webkit-scrollbar-thumb:hover,
-.table-main-wrap::-webkit-scrollbar-thumb {
+.table-main-wrap::-webkit-scrollbar-thumb,
+.dropdown-list::-webkit-scrollbar-thumb {
     background: #dea6f8;
 }
 

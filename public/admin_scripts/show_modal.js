@@ -1,11 +1,13 @@
 'use strict';
 
-import {addModalImage,addCategoryModal,addEditCategoryModal,addRemoveCategoryModal,addRemoveWordModal} from './add_content.js';
+import {addModalImage,addCategoryModal,addEditCategoryModal,addRemoveCategoryModal,addEditWordModal,addRemoveWordModal} from './add_content.js';
 import {getWordIndex} from './get_word_index.js';
 import {createCategory} from './update_data/create_category.js';
 import {editCategory} from './update_data/edit_category.js';
 import {removeCategory} from './update_data/remove_category.js';
+import {editWord} from './update_data/edit_word.js';
 import {removeWord} from './update_data/remove_word.js';
+import {openDropdown} from './open_dropdown.js';
 
 const overlay = document.querySelector('.overlay');
 
@@ -76,6 +78,25 @@ function removeCategoryModal(category) {
     });
 }
 
+// Edit current word
+function editWordModal(words) {
+    document.querySelectorAll('.action-list li:first-child').forEach((el, index) => {
+        el.onclick = () => {
+            const id = document.querySelectorAll('.table-main tbody tr td:nth-child(1)')[index].textContent;
+            addEditWordModal(words[getWordIndex(words, id)].english, words[getWordIndex(words, id)].transcription,words[getWordIndex(words, id)].russian);
+            openModal();
+            openDropdown(words[getWordIndex(words, id)].category);
+            closeModal(document.querySelectorAll('.modal-confirm button')[1]);
+            
+            document.querySelector('.modal').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const chosenCategory = document.querySelector('.chosen-category');
+                editWord(words[getWordIndex(words, id)].id,chosenCategory.textContent.slice(10));
+            });
+        }
+    });
+}
+
 // Remove word
 function removeWordModal(words) {
     document.querySelectorAll('.action-list li:last-child').forEach((el, index) => {
@@ -93,7 +114,6 @@ function removeWordModal(words) {
         }
     });
 }
-
 
 // Open modal
 function openModal() {
@@ -122,4 +142,4 @@ function removeModal() {
     overlay.innerHTML = '';
 }
 
-export {showModalImage, createCategoryModal, editCategoryModal, removeCategoryModal, closeModal, removeModal,removeWordModal};
+export {showModalImage, createCategoryModal, editCategoryModal, removeCategoryModal, closeModal, removeModal,editWordModal,removeWordModal};

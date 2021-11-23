@@ -6,7 +6,7 @@ import {createMainTable} from './admin_scripts/create_main_table.js';
 import {getFilter} from './admin_scripts/use_filter.js';
 import {searchWord} from './admin_scripts/search_word.js';
 import {sortWords} from './admin_scripts/sort_words.js';
-import {showModalImage,createCategoryModal,editCategoryModal,removeCategoryModal,removeWordModal} from './admin_scripts/show_modal.js';
+import {showModalImage,createCategoryModal,editCategoryModal,removeCategoryModal,editWordModal,removeWordModal} from './admin_scripts/show_modal.js';
 
 //Admin Panel
 addContent(0);
@@ -24,6 +24,7 @@ async function getDataAPI() {
     sortWords(allWords);
     showModalImage(allWords);
     removeWordModal(allWords);
+    editWordModal(allWords);
 }
 
 async function getCategoryAPI() {
