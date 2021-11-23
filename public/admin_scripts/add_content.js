@@ -65,7 +65,22 @@ function addContent(index) {
             </div>
         </div>`;
     } else if (index === 2) {
-        menu[2].innerHTML = `<p>Hello</p>`
+        menu[2].innerHTML = `
+        <form class="modal form-add-word">
+            <div class="dropdown-list-wrap">
+                <ul class="dropdown-list"></ul>
+            </div>
+            <label>Edit english:</label>
+            <input type="text"><span class="error-message"></span>
+            <label>Edit transcription:</label>
+            <input type="text"><span class="error-message"></span>
+            <label>Edit russian:</label>
+            <input type="text"><span class="error-message"></span>
+            <label class="download-wrap" for="file-upload"><span class="material-icons">file_download</span>Download image</label>
+            <span class="error-message"></span>
+            <input type="file" id="file-upload">
+            <button class="button-main">Add word</button>
+        </form>`;
     }
 }
 

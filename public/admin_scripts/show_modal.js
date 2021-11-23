@@ -8,6 +8,7 @@ import {removeCategory} from './update_data/remove_category.js';
 import {editWord} from './update_data/edit_word.js';
 import {removeWord} from './update_data/remove_word.js';
 import {openDropdown} from './open_dropdown.js';
+import {getAllCategory} from '../scripts/get_all_words.js';
 
 const overlay = document.querySelector('.overlay');
 
@@ -79,13 +80,17 @@ function removeCategoryModal(category) {
 }
 
 // Edit current word
-function editWordModal(words) {
+async function editWordModal(words) {
+    let allCategories;
+    const data = await getAllCategory();
+    allCategories = data;
+    
     document.querySelectorAll('.action-list li:first-child').forEach((el, index) => {
         el.onclick = () => {
             const id = document.querySelectorAll('.table-main tbody tr td:nth-child(1)')[index].textContent;
             addEditWordModal(words[getWordIndex(words, id)].english, words[getWordIndex(words, id)].transcription,words[getWordIndex(words, id)].russian);
             openModal();
-            openDropdown(words[getWordIndex(words, id)].category);
+            openDropdown(allCategories);
             closeModal(document.querySelectorAll('.modal-confirm button')[1]);
             
             document.querySelector('.modal').addEventListener('submit', (e) => {

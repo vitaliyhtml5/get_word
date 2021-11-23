@@ -3,20 +3,16 @@
 import {getAllCategory} from '../scripts/get_all_words.js';
 
 // Open dropdown with categories
-function openDropdown(categoryValue) {
+function openDropdown(allCategories) {
     const list = document.querySelector('.dropdown-list');
     let chosenValue;
     let listTitle;
     let category;
     let arrow;
     
-    getCategory();
-    async function getCategory() {
-        const data = await getAllCategory();
-        category = data[0].name;
-        list.innerHTML = `<li class="default-value"><span class="chosen-category">Category: ${categoryValue}</span><span class="material-icons">expand_more</span></li>`;
-        createList(data);
-    }
+    category = allCategories[0].name;
+    list.innerHTML = `<li class="default-value"><span class="chosen-category">Category: ${category}</span><span class="material-icons">expand_more</span></li>`;
+    createList(allCategories);
 
     function createList(data) {
         for (let i in data) {

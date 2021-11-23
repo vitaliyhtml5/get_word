@@ -145,6 +145,25 @@ td {
 .dropdown-list-wrap {
     margin-top: 20px;
 }
+#add-word .form-add-word {
+    position: relative;
+    top: 0;
+    padding-top: 0;
+    border: none;
+    background-color: transparent;
+}
+#add-word .form-add-word input {
+    padding: 10px;
+}
+#add-word .form-add-word label {
+    margin-top: 25px;
+    padding-left: 3px;
+}
+#add-word .form-add-word button {
+    display: block;
+    width: 160px;
+    margin: 40px 0 0 auto;
+}
 
 /* Other */
 .sort-btn {

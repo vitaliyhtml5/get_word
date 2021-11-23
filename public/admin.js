@@ -7,6 +7,7 @@ import {getFilter} from './admin_scripts/use_filter.js';
 import {searchWord} from './admin_scripts/search_word.js';
 import {sortWords} from './admin_scripts/sort_words.js';
 import {showModalImage,createCategoryModal,editCategoryModal,removeCategoryModal,editWordModal,removeWordModal} from './admin_scripts/show_modal.js';
+import {openDropdown} from './admin_scripts/open_dropdown.js';
 
 //Admin Panel
 addContent(0);
@@ -60,6 +61,11 @@ function changeMenu(allWords) {
                 getCategoryAPI();
             } else if (index === 2) {
                 addContent(index);
+                sendCategories();
+                async function sendCategories() {
+                    const data = await getAllCategory();
+                    openDropdown(data);
+                }
             }
         }
     });

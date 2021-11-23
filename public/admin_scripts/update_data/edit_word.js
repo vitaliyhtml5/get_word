@@ -9,7 +9,7 @@ import {showAlert} from '../show_alert.js';
 function editWord(wordId, category) {
     checkFields();
     const input = document.querySelectorAll('.modal input');
-    const errorMessage = document.querySelectorAll('.error-message');
+    // const errorMessage = document.querySelectorAll('.error-message');
 
     if (checkFields()) {
         const data = {
