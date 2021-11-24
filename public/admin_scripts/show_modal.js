@@ -9,6 +9,7 @@ import {editWord} from './update_data/edit_word.js';
 import {removeWord} from './update_data/remove_word.js';
 import {openDropdown} from './open_dropdown.js';
 import {getAllCategory} from '../scripts/get_all_words.js';
+import {checkUploadedImage} from './update_data/check_fields.js';
 
 const overlay = document.querySelector('.overlay');
 
@@ -92,6 +93,8 @@ async function editWordModal(words) {
             openModal();
             openDropdown(allCategories);
             closeModal(document.querySelectorAll('.modal-confirm button')[1]);
+
+            document.querySelector('#file-upload').onchange = checkUploadedImage;
             
             document.querySelector('.modal').addEventListener('submit', (e) => {
                 e.preventDefault();

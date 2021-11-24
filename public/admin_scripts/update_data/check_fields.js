@@ -45,4 +45,38 @@ function checkUniqueCategory(category) {
     return validation;
 }
 
-export {checkFields,checkUniqueCategory};
+function checkUploadedImage() {
+    const label = document.querySelector('.download-wrap');
+    const file = document.querySelector('#file-upload');
+    const errorMessageFile = document.querySelector('.download-wrap+.error-message');
+    const fileList = file.files;
+    let validation;
+
+    if (file.value) {
+        if (fileList[0].size > 2000000) {
+            showErrorInput(file, errorMessageFile, 'Max size of image is 2 Mb');
+            clearError(file, errorMessageFile);
+            validation = false;
+        } else if (fileList[0].type === 'image/jpeg' || fileList[0].type === 'image/png' || fileList[0].type === 'image/svg+xml') {
+            validation = true;         
+        } else {
+            showErrorInput(file, errorMessageFile, 'Format of image is incorrect');
+            clearError(file, errorMessageFile);
+            validation = false;
+        }
+    }
+    validation ? showUploadedImage(label,fileList[0].name) : showDefaultLabel(label);
+
+    return validation;
+}
+
+function showUploadedImage(label,fileName) {
+    label.innerHTML = `<span class="material-icons">check</span>${fileName}`;
+    label.classList.add('image-uploaded');
+}
+function showDefaultLabel(label) {
+    label.innerHTML = `<span class="material-icons">file_download</span>Download image (jpg, png, svg)`;
+    label.classList.remove('image-uploaded');
+}
+
+export {checkFields,checkUniqueCategory,checkUploadedImage};
