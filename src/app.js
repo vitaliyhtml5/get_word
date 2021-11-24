@@ -7,14 +7,14 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '../public'), {
     extensions: ['html']
 }));
-// const upload = multer({dest:path.join(__dirname, '../public/img/words')});
-const upload = multer({dest:"uploads"});
+const upload = multer({dest:path.join(__dirname, '../public/img/words')});
 
 const connection = require('./db/dbc.js');
 const getAll = require('./get_all.js');
 const getCategory = require('./get_category.js');
 const searchWord = require('./search_word.js');
 const addCategory = require('./add_category.js');
+const addWord = require('./add_word.js');
 const editCategory = require('./edit_category.js');
 const editWord = require('./edit_word.js');
 const removeCategory = require('./remove_category.js');
@@ -26,6 +26,7 @@ app.get('/get-category', (req, res) => getCategory(req, res));
 app.get('/search-word', (req, res) => searchWord(req, res));
 
 app.post('/add-category', (req, res) => addCategory(req, res));
+app.post('/add-word', (req, res) => addWord(req, res));
 
 app.put('/edit-category', (req, res) => editCategory(req, res));
 app.put('/edit-word', (req, res) => editWord(req, res));

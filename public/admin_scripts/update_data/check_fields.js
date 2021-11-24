@@ -79,4 +79,4 @@ function showDefaultLabel(label) {
     label.classList.remove('image-uploaded');
 }
 
-export {checkFields,checkUniqueCategory,checkUploadedImage};
+export {checkFields,checkUniqueCategory,checkUploadedImage,showDefaultLabel};

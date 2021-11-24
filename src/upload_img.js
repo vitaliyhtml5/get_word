@@ -1,4 +1,3 @@
-
 const uploadImg = (req, res) => {
     let filedata = req.file.filename;
     try {

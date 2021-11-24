@@ -1,13 +1,21 @@
-'use strict';
+'use strict'
 
-import {getDataAPI} from '../../admin.js';
-import {checkFields,checkUploadedImage} from './check_fields.js';
+import {checkFields,checkUploadedImage,showDefaultLabel} from './check_fields.js';
 import {showErrorInput, clearError} from './show_error.js';
-import {removeModal} from '../show_modal.js';
 import {showAlert} from '../show_alert.js';
 
-// Edit a word
-function editWord(wordId, category) {
+// Add a new word
+function createWord() {
+    document.querySelector('#file-upload').onchange = checkUploadedImage;
+
+    document.querySelector('.form-add-word').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const chosenCategory = document.querySelector('.chosen-category');
+        sendCreateWord(chosenCategory.textContent.slice(10));
+    });
+}
+
+function sendCreateWord(category) {
     checkFields();
     const input = document.querySelectorAll('.modal input[type="text"]');
     const file = document.querySelector('#file-upload');
@@ -31,7 +39,6 @@ function editWord(wordId, category) {
         const res = await req.json();
         if (res.message !== 'image was not uploaded') {
             const data = {
-                id: wordId,
                 english: input[0].value.toLowerCase().trim(),
                 transcription: input[1].value.toLowerCase().trim(),
                 russian: input[2].value.toLowerCase().trim(),
@@ -43,20 +50,18 @@ function editWord(wordId, category) {
     }
 
     async function sendData(data) {
-        const req = await fetch('/edit-word', {
-            method: 'PUT',
+        const req = await fetch('/add-word', {
+            method: 'POST',
             headers: {
                 'Content-type': 'application/json'
             },
             body: JSON.stringify(data)
         });
         const res = await req.json();
-
-        document.querySelector('.table-main tbody').innerHTML = ``;
-        getDataAPI();
-        showAlert('Word was edited');
-        removeModal();
+        showAlert('Word was created');
+        document.querySelectorAll('input').forEach(el => el.value = '');
+        showDefaultLabel(document.querySelector('.download-wrap'))
     }
 }
 
-export {editWord};
+export {createWord};
