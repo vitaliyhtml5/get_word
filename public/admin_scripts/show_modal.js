@@ -23,6 +23,10 @@ function showModalImage(words) {
             getWordIndex(words, id);
 
             addModalImage(words[getWordIndex(words,id)].english, words[getWordIndex(words,id)].image);
+            document.querySelector('.modal-img img').onerror = function() {
+                this.src = 'img/broken-img.png';
+                document.querySelector('.modal-img b').textContent = 'Image is missed';
+            }
             closeModal(document.querySelector('.modal-img button'));
             closeModalOutside();
         }
@@ -112,6 +116,11 @@ function removeWordModal(words) {
             const id = document.querySelectorAll('.table-main tbody tr td:nth-child(1)')[index].textContent;
             addRemoveWordModal(words[getWordIndex(words, id)].image, words[getWordIndex(words, id)].english);
             openModal();
+
+            document.querySelector('.modal img').onerror = function() {
+                this.src = 'img/broken-img.png';
+            }
+
             closeModal(document.querySelectorAll('.modal-confirm button')[1]);
             closeModalOutside();
 

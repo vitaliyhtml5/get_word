@@ -60,8 +60,10 @@ function createMainTable(words, type ='words') {
         showModalImage(words);
         editCategoryModal(words);
         removeCategoryModal(words);
-        editWordModal(words);
-        removeWordModal(words);
+        if (type === 'words') {
+            editWordModal(words);
+            removeWordModal(words);
+        }
         paginationBtn.onclick = (e) => {
             if ((numberWords + numberRows) < words.length) {
                 numberWords += numberRows;

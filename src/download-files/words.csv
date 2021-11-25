@@ -1,5 +1,5 @@
 id,english,transcription,russian,image,category
-1,moose,[muːs],лось,ea443d0b320ca70068d1abc651269732,animals
+1,moose,[muːs],лось,89d2704b539673d340f8f5548856f0e1,animals
 2,camel,[ˈkæm(ə)l],верблюд,camel.png,animals
 3,giraffe,[ʤɪ’rɑːf],жираф,moose.png,animals
 4,lion,[‘laɪən],лев,lion.png,animals
@@ -11,11 +11,10 @@ id,english,transcription,russian,image,category
 13,pear,[peə],груша,pear.jpg,fruit
 14,lemon,[‘lemən],лимон,lemon.png,fruit
 15,apple,[‘æpl],яблоко,apple.png,fruit
-16,waiter,[ˈweɪtə],официант,waiter.png,job
 17,teacher,[ˈtiːtʃə],учитель,teacher.png,job
 18,driver,[ˈdraɪvə],водитель,driver.png,job
 19,builder,[ˈbɪldə],строитель,builder.png,job
 20,singer,[ˈsɪŋə],певец,singer.png,job
-30,cat,[cat],кошка,c20648de34f44b8e9d64cd33c9e62276,animals
-34,aaa,ssss,ddd,e3cc483467f28cab203a38118c5dbd62,animals
 35,cat,cat,кошка,d5c3a8ef33a5ad1613ab92b3ac5978ad,animals
+37,dev,dev,разработчик,302a43b307afecd245572a9efe1af371,animals
+38,qweqweqweqwewqeeqweq,qweqweqweqwewqeeqweq,qweqweqweqwewqeeqweq,ea16aca95b6a588829a9e37af0c5f9e8,wwwwwwwwwwwwwwwwwww

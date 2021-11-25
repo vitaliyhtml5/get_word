@@ -326,10 +326,14 @@ button {
 }
 .filter-wrap label {
     position: relative;
+    overflow: hidden;
     align-self: baseline;
     margin-bottom: 12px;
     padding-left: 17px;
     font-size: 18px;
+    max-width: 200px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     transition: .4s;
     cursor: pointer;
 }
@@ -441,7 +445,7 @@ button {
 /* Loader */
 .loader {
     position: absolute;
-    z-index: 20;
+    z-index: 200;
     top: 0;
     left: 0;
     display: none;

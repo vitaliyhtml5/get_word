@@ -10,7 +10,7 @@ const uploadImg = (req, res) => {
         const source = tinify.fromFile(pathToImg);
         const resized = source.resize({
             method: "scale",
-            height: 200
+            height: 400
         });
         resized.toFile(pathToImg);
     }

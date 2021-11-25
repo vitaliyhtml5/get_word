@@ -3,6 +3,7 @@
 import {checkFields,checkUploadedImage,showDefaultLabel} from './check_fields.js';
 import {showErrorInput, clearError} from './show_error.js';
 import {showAlert} from '../show_alert.js';
+import {showLoader,hideLoader} from "../loader.js";
 
 // Add a new word
 function createWord() {
@@ -32,6 +33,7 @@ function sendCreateWord(category) {
     }
 
     async function uploadImage(fileData) {
+        showLoader();
         const req = await fetch('/upload-image', {
             method: "POST", 
             body: fileData
@@ -58,6 +60,7 @@ function sendCreateWord(category) {
             body: JSON.stringify(data)
         });
         const res = await req.json();
+        hideLoader();
         showAlert('Word was created');
         document.querySelectorAll('input').forEach(el => el.value = '');
         showDefaultLabel(document.querySelector('.download-wrap'))

@@ -5,6 +5,7 @@ import {clearSortState} from './sort_words.js';
 
 
 // !!!! Need to fix bug when filter does not open after removing a word
+//!!! Category isnt changed in dropdown, always animals
 
 //Open,close filter and get filtered results
 function useFilter(words) {

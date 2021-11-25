@@ -1,16 +1,17 @@
 'use strict';
 
+import {showLoader,hideLoader} from "./loader.js";
+
 // Get json and csv files
 function uploadFile() {
     const file = document.querySelectorAll('.upload-file');
     uploadAllData();
 
     function uploadAllData() {
-        const loader = document.querySelector('.loader');
-        loader.style.display = 'block';
+        showLoader();
         uploadData('/download-json', file[0]);
         setTimeout(() => {
-            uploadData('/download-csv', file[1]).then(() => loader.style.display = 'none');
+            uploadData('/download-csv', file[1]).then(() => hideLoader());
         },1000);
     }
 

@@ -3,9 +3,11 @@
 import {removeModal} from '../show_modal.js';
 import {getDataAPI} from '../../admin.js';
 import {showAlert} from '../show_alert.js';
+import {showLoaderModal, hideLoaderModal} from "../loader.js";
 
 // Remove category
 async function removeWord(word_id) {
+    showLoaderModal();
     const req = await fetch(`/remove-word?word_id=${word_id}`, {
         method: 'DELETE',
     });
@@ -14,8 +16,9 @@ async function removeWord(word_id) {
     if (res.message === 'word was removed') {
         document.querySelector('.table-main tbody').innerHTML = ``;
         getDataAPI();
-        showAlert('Word was removed');
         removeModal();
+        hideLoaderModal();
+        showAlert('Word was removed');
     }
 }
 

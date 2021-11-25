@@ -5,6 +5,7 @@ import {checkFields,checkUploadedImage} from './check_fields.js';
 import {showErrorInput, clearError} from './show_error.js';
 import {removeModal} from '../show_modal.js';
 import {showAlert} from '../show_alert.js';
+import {showLoaderModal, hideLoaderModal} from "../loader.js";
 
 // Edit a word
 function editWord(wordId, category) {
@@ -24,6 +25,7 @@ function editWord(wordId, category) {
     }
 
     async function uploadImage(fileData) {
+        showLoaderModal();
         const req = await fetch('/upload-image', {
             method: "POST", 
             body: fileData
@@ -54,8 +56,9 @@ function editWord(wordId, category) {
 
         document.querySelector('.table-main tbody').innerHTML = ``;
         getDataAPI();
-        showAlert('Word was edited');
         removeModal();
+        hideLoaderModal();
+        showAlert('Word was edited');
     }
 }
 
