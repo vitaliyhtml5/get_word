@@ -164,7 +164,39 @@ td {
     width: 160px;
     margin: 40px 0 0 auto;
 }
-
+/* Export */
+#export-file .export-wrap {
+    display: flex;
+    flex-direction: column;
+    margin: 12px 60px;
+}
+#export-file h3 {
+    margin-bottom: 8px;
+    color: #626161;
+    font-size: 22px;
+    font-weight: 500;
+}
+#export-file .upload-file {
+    align-self: baseline;
+    margin-bottom: 30px;
+    color: #c24afa;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 0.7px;
+    transition: 0.4s;
+    cursor: pointer;
+}
+#export-file .upload-file:hover {
+    color: #a108e7;
+}
+#export-file .upload-file:active {
+    color: #8a0ac5;
+}
+#export-file .material-icons {
+    font-size: 18px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
 /* Other */
 .sort-btn {
     width: 25px;
@@ -251,7 +283,7 @@ td {
     cursor: pointer;
 }
 .download-wrap .material-icons {
-    vertical-align: text-bottom;
+    vertical-align: text-top;
     font-size: 18px;
     margin-right: 2px;
 }

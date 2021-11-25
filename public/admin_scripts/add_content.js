@@ -70,17 +70,25 @@ function addContent(index) {
             <div class="dropdown-list-wrap">
                 <ul class="dropdown-list"></ul>
             </div>
-            <label>Edit english:</label>
+            <label>Add english:</label>
+            <input type="text" autofocus><span class="error-message"></span>
+            <label>Add transcription:</label>
             <input type="text"><span class="error-message"></span>
-            <label>Edit transcription:</label>
+            <label>Add russian:</label>
             <input type="text"><span class="error-message"></span>
-            <label>Edit russian:</label>
-            <input type="text"><span class="error-message"></span>
-            <label class="download-wrap" for="file-upload"><span class="material-icons">file_download</span>Download image (jpg, png, svg)</label>
+            <label class="download-wrap" for="file-upload"><span class="material-icons">file_upload</span>Upload image (jpg, png, svg)</label>
             <span class="error-message"></span>
             <input type="file" name="filedata" id="file-upload">
             <button class="button-main">Add word</button>
         </form>`;
+    } else if (index === 3) {
+        menu[3].innerHTML = `
+        <div class="export-wrap">
+            <h3>Download json-file:</h3>
+            <a class="upload-file" download><span class="material-icons">download</span>words.json</a>
+            <h3>Download csv-file:</h3>
+            <a class="upload-file" download><span class="material-icons">download</span>words.csv</a>
+        </div>`
     }
 }
 
@@ -164,7 +172,7 @@ function addEditWordModal(english, transcription, russian) {
         <input type="text" value="${transcription}"><span class="error-message"></span>
         <label>Edit russian:</label>
         <input type="text" value="${russian}"><span class="error-message"></span>
-        <label class="download-wrap" for="file-upload"><span class="material-icons">file_download</span>Download image (jpg, png, svg)</label>
+        <label class="download-wrap" for="file-upload"><span class="material-icons">file_upload</span>Upload image (jpg, png, svg)</label>
         <span class="error-message"></span>
         <input type="file" name="filedata" id="file-upload">
         <div class="btn-wrap">

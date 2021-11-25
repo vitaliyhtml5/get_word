@@ -9,6 +9,7 @@ import {sortWords} from './admin_scripts/sort_words.js';
 import {showModalImage,createCategoryModal,editCategoryModal,removeCategoryModal,editWordModal,removeWordModal} from './admin_scripts/show_modal.js';
 import {openDropdown} from './admin_scripts/open_dropdown.js';
 import {createWord} from './admin_scripts/update_data/create_word.js';
+import {uploadFile} from './admin_scripts/upload_file.js';
 
 //Admin Panel
 addContent(0);
@@ -68,6 +69,9 @@ function changeMenu(allWords) {
                     openDropdown(data);
                     createWord();
                 }
+            } else if (index === 3) {
+                addContent(index);
+                uploadFile();
             }
         }
     });

@@ -20,6 +20,7 @@ const editWord = require('./edit_word.js');
 const removeCategory = require('./remove_category.js');
 const removeWord = require('./remove_word.js');
 const uploadImg = require('./upload_img.js');
+const downloadWords = require('./download_words.js');
 
 app.get('/get-all-words', (req, res) => getAll(req, res));
 app.get('/get-category', (req, res) => getCategory(req, res));
@@ -35,6 +36,9 @@ app.delete('/remove-category', (req, res) => removeCategory(req, res));
 app.delete('/remove-word', (req, res) => removeWord(req, res));
 
 app.post('/upload-image', upload.single("filedata"), (req, res, next) => uploadImg(req, res));
+
+app.get('/download-json', (req, res) => downloadWords.downloadWordsJson(req, res));
+app.get('/download-csv', (req, res) => downloadWords.downloadWordsCsv(req, res));
 
 // 404 error
 app.get('*/*', (req, res) => res.status(404).sendFile(`${path.join(__dirname,'../public')}/404-error.html`));

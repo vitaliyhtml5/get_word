@@ -75,7 +75,7 @@ function showUploadedImage(label,fileName) {
     label.classList.add('image-uploaded');
 }
 function showDefaultLabel(label) {
-    label.innerHTML = `<span class="material-icons">file_download</span>Download image (jpg, png, svg)`;
+    label.innerHTML = `<span class="material-icons">file_upload</span>Upload image (jpg, png, svg)`;
     label.classList.remove('image-uploaded');
 }
 
