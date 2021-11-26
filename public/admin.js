@@ -1,6 +1,7 @@
 'use strict';
 
 import {getAllWords,getAllCategory} from './scripts/get_all_words.js';
+import {manageSidebar} from './admin_scripts/manage_sidebar.js';
 import {addContent} from './admin_scripts/add_content.js';
 import {createMainTable} from './admin_scripts/create_main_table.js';
 import {getFilter} from './admin_scripts/use_filter.js';
@@ -16,6 +17,7 @@ addContent(0);
 let allWords;
 let allCategory;
 getDataAPI();
+manageSidebar();
 
 async function getDataAPI() {
     const data = await getAllWords();

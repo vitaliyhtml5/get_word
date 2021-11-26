@@ -10,6 +10,7 @@
     margin-right: 10px;
 }
 .content-wrap {
+    position: relative;
     padding-top: 40px;
 }
 .nav-list li {
@@ -31,8 +32,21 @@
     transition: .4s;
     cursor: pointer;
 }
-.hide-sidebar:hover,
-.filter-clear:hover {
+.hide-sidebar {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    margin: 0;
+    color: #b105ff54;
+    font-size: 22px;
+    transform: rotate(-90deg);
+    transition: 0s !important;
+}
+.show-sidebar {
+    transform: rotate(-270deg);
+}
+.filter-clear:hover,
+.hide-sidebar:hover {
     color: #b105ff;
 }
 .hide-sidebar .material-icons {
@@ -49,7 +63,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
+    margin: 5px 0 20px 30px;
 }
 .set-word-wrap {
     width: 25px;
