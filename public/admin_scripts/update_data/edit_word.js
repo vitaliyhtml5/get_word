@@ -8,7 +8,7 @@ import {showAlert} from '../show_alert.js';
 import {showLoaderModal, hideLoaderModal} from "../loader.js";
 
 // Edit a word
-function editWord(wordId, category) {
+function editWord(wordId, category, oldImage) {
     checkFields();
     const input = document.querySelectorAll('.modal input[type="text"]');
     const file = document.querySelector('#file-upload');
@@ -39,6 +39,7 @@ function editWord(wordId, category) {
                 russian: input[2].value.toLowerCase().trim(),
                 image: res.image,
                 category: category,
+                oldImage: oldImage
             }
             sendData(data);
         }

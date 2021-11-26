@@ -102,7 +102,7 @@ async function editWordModal(words) {
             document.querySelector('.modal').addEventListener('submit', (e) => {
                 e.preventDefault();
                 const chosenCategory = document.querySelector('.chosen-category');
-                editWord(words[getWordIndex(words, id)].id,chosenCategory.textContent.slice(10));
+                editWord(words[getWordIndex(words, id)].id,chosenCategory.textContent.slice(10),words[getWordIndex(words, id)].image);
             });
         }
     });

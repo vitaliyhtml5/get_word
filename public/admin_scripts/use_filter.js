@@ -3,19 +3,19 @@
 import {createMainTable} from './create_main_table.js';
 import {clearSortState} from './sort_words.js';
 
-// !!!! Need to fix bug when filter does not open after removing a word
-
 //Open,close filter and get filtered results
 function useFilter(words) {
-    const filterIcon = document.querySelector('.filter-icon');
     const filterWrap = document.querySelector('.filter-wrap');
     const filterBtn = document.querySelectorAll('.filter-btn-wrap button');
     const clearFilterBtn = document.querySelector('.filter-clear');
-    const openFilter = () => filterWrap.classList.add('show-flex');
-    const closeFilter = () => filterWrap.classList.remove('show-flex');
+    const openFilter = () => filterWrap.style.display = 'flex';
+    const closeFilter = () => filterWrap.style.display = 'none';
 
     // Open-close
-    !filterWrap.classList.contains('show-flex') ? openFilter() : closeFilter();
+    openFilter();
+    document.body.onclick = () => {
+        if (filterWrap.style.display = 'flex') closeFilter();
+    }
     filterBtn[1].addEventListener('click', closeFilter);
 
     // Set filter
@@ -81,5 +81,10 @@ function setClearFilter() {
     }
 }
 
-export {useFilter, getFilter, setFilter};
+function removePropagation() {
+    document.querySelector('.filter-icon').addEventListener('click', e => e.stopPropagation());
+    document.querySelector('.filter-wrap').addEventListener('click', e => e.stopPropagation());
+}
+
+export {useFilter, getFilter, setFilter, removePropagation};
 

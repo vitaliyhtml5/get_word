@@ -1,3 +1,5 @@
+const fs = require('fs');
+const path = require('path');
 const updateWord = require('./db/update_word.js');
 
 const editWord = (req, res) => {
@@ -6,6 +8,8 @@ const editWord = (req, res) => {
             if (err) {
                 res.send(err);
             } else {
+                const sourceUrls = path.join(__dirname, `../public/img/words/${req.body.oldImage}`);
+                fs.unlinkSync(sourceUrls);
                 res.send(data);
             }
         } catch (e) {

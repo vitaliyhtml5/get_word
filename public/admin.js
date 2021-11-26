@@ -4,7 +4,7 @@ import {getAllWords,getAllCategory} from './scripts/get_all_words.js';
 import {manageSidebar} from './admin_scripts/manage_sidebar.js';
 import {addContent,emptyStateWords,emptyStateAddWord} from './admin_scripts/add_content.js';
 import {createMainTable} from './admin_scripts/create_main_table.js';
-import {getFilter} from './admin_scripts/use_filter.js';
+import {getFilter,removePropagation} from './admin_scripts/use_filter.js';
 import {searchWord} from './admin_scripts/search_word.js';
 import {sortWords} from './admin_scripts/sort_words.js';
 import {showModalImage,createCategoryModal,editCategoryModal,removeCategoryModal,editWordModal,removeWordModal} from './admin_scripts/show_modal.js';
@@ -31,6 +31,7 @@ async function getDataAPI() {
     showModalImage(allWords);
     removeWordModal(allWords);
     editWordModal(allWords);
+    removePropagation();
 }
 
 async function getCategoryAPI() {

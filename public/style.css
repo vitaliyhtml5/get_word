@@ -327,6 +327,7 @@ button {
 .category-wrap {
     display: flex;
     flex-direction: column;
+    margin-bottom: 10px;
 }
 .filter-wrap label {
     position: relative;
@@ -365,7 +366,7 @@ button {
     display: flex;
     justify-content: space-between;
     width: 90%;
-    margin: 10px auto 5px;
+    margin: auto auto 5px;
 }
 .filter-wrap button {
     width: 48%;

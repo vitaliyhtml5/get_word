@@ -16,7 +16,7 @@ const uploadImg = (req, res) => {
     }
 
     try {
-        res.send({image: filedata})
+        res.send({image: filedata});
     } catch (e) {
         res.status(500).send({message: 'image was not uploaded'});
     }
