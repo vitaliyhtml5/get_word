@@ -93,7 +93,6 @@ function addContent(index) {
 }
 
 // Add content for modal with image
-
 function addModalImage(word, image) {
     document.querySelector('.overlay').innerHTML = `
     <div class="modal modal-img">

@@ -63,7 +63,7 @@ function sendCreateWord(category) {
         hideLoader();
         showAlert('Word was created');
         document.querySelectorAll('input').forEach(el => el.value = '');
-        showDefaultLabel(document.querySelector('.download-wrap'))
+        showDefaultLabel(document.querySelector('.download-wrap'));
     }
 }
 

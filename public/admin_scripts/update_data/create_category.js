@@ -11,7 +11,6 @@ import {showLoaderModal, hideLoaderModal} from "../loader.js";
 function createCategory(category) {
     const input = document.querySelector('.modal input');
     const errorMessage = document.querySelector('.error-message');
-
  
     if (category.length === 0 && checkFields()) {
         const data = {

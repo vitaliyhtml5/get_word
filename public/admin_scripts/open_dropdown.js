@@ -1,16 +1,15 @@
 'use strict';
 
-import {getAllCategory} from '../scripts/get_all_words.js';
-
 // Open dropdown with categories
-function openDropdown(allCategories) {
+function openDropdown(allCategories, categoryInitial) {
     const list = document.querySelector('.dropdown-list');
     let chosenValue;
     let listTitle;
     let category;
     let arrow;
+
+    categoryInitial === undefined ? category = allCategories[0].name : category = categoryInitial;
     
-    category = allCategories[0].name;
     list.innerHTML = `<li class="default-value"><span class="chosen-category">Category: ${category}</span><span class="material-icons">expand_more</span></li>`;
     createList(allCategories);
 

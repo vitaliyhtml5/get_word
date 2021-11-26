@@ -13,7 +13,6 @@ import {checkUploadedImage} from './update_data/check_fields.js';
 
 const overlay = document.querySelector('.overlay');
 
-
 // Show modal with image
 function showModalImage(words) {
     document.querySelectorAll('.td-image').forEach((el, index) => {
@@ -95,7 +94,7 @@ async function editWordModal(words) {
             const id = document.querySelectorAll('.table-main tbody tr td:nth-child(1)')[index].textContent;
             addEditWordModal(words[getWordIndex(words, id)].english, words[getWordIndex(words, id)].transcription,words[getWordIndex(words, id)].russian);
             openModal();
-            openDropdown(allCategories);
+            openDropdown(allCategories, words[getWordIndex(words, id)].category);
             closeModal(document.querySelectorAll('.modal-confirm button')[1]);
 
             document.querySelector('#file-upload').onchange = checkUploadedImage;
