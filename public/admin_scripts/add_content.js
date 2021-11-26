@@ -189,4 +189,17 @@ function addAlert(text) {
         <button class="material-icons">close</button>`;
 }
 
-export {addContent,addAlert,addModalImage,addCategoryModal,addEditCategoryModal,addRemoveCategoryModal,addEditWordModal,addRemoveWordModal};
+function emptyStateWords() {
+    document.querySelector('.empty-page').innerHTML = `
+    <img src="img/search.png">
+    <b>No words yet</b>`;
+}
+
+function emptyStateAddWord() {
+    document.querySelector('.empty-page').innerHTML = `
+    <img src="img/search.png">
+    <b>Category should be created first</b>
+    <button class="button-main add-category-empty">Create category</button>`;
+}
+
+export {addContent,addAlert,addModalImage,addCategoryModal,addEditCategoryModal,addRemoveCategoryModal,addEditWordModal,addRemoveWordModal,emptyStateWords,emptyStateAddWord};

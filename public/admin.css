@@ -58,6 +58,7 @@
 /* Main */
 #main-wrap {
     min-width: 800px;
+    min-height: 700px;
 }
 .tools-wrap {
     display: flex;
@@ -279,6 +280,33 @@ td {
 }
 .error-page {
     display: none;
+    padding-top: 40px;
+}
+/* Empty state */
+.empty-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    padding-top: 50px;
+    letter-spacing: 0.8px;
+    background-color: #fff;
+}
+.empty-page b {
+    display: block;
+    margin: 20px auto 25px;
+    font-size: 24px;
+    text-align: center;
+}
+.empty-page button {
+    width: 220px;
+}
+.empty-page button,
+.empty-page img {
+    display: block;
+    margin: 0 auto;
 }
 /* Dropdown */
 .dropdown-list-wrap {

@@ -1,6 +1,8 @@
 'use strict';
 
-import {showModalImage,editCategoryModal,removeCategoryModal, editWordModal, removeWordModal} from "./show_modal.js";
+import {showModalImage,editCategoryModal,removeCategoryModal, editWordModal, removeWordModal} from './show_modal.js';
+import {emptyStateWords} from './add_content.js';
+import {hideEmptyPage,showEmptyPage,emptyState} from './empty_state.js';
 
 // Create table + pagination
 function createMainTable(words, type ='words') {
@@ -19,7 +21,20 @@ function createMainTable(words, type ='words') {
         numberWords = numberRows;
         paginationBtn.style.display = 'flex';
     }
-    fillTable(0);
+
+    if (words.length === 0 && type === 'words') {
+        showEmptyPage();
+        emptyStateWords();
+    } else if (words.length === 0 && type === 'category') {
+        document.querySelector('.table-main-wrap').style.display = 'none';
+        hideEmptyPage();
+        emptyState('img/search.png', 'No categories yet');
+    } else {
+        document.querySelector('.error-page').style.display = 'none';
+        document.querySelector('.table-main-wrap').style.display = 'block';
+        hideEmptyPage();
+        fillTable(0);
+    }
 
     function fillTable(start) {
         for (let i = start; i < numberWords; i++) {

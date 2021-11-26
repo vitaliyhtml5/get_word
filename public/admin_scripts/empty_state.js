@@ -9,4 +9,7 @@ function emptyState(img, text) {
         <p>${text}</p>`;
 }
 
-export {emptyState};
+const hideEmptyPage = () => document.querySelector('.empty-page').style.zIndex = '-1';
+const showEmptyPage = () => document.querySelector('.empty-page').style.zIndex = '10';
+
+export {emptyState,showEmptyPage,hideEmptyPage};

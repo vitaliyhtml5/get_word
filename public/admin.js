@@ -2,7 +2,7 @@
 
 import {getAllWords,getAllCategory} from './scripts/get_all_words.js';
 import {manageSidebar} from './admin_scripts/manage_sidebar.js';
-import {addContent} from './admin_scripts/add_content.js';
+import {addContent,emptyStateWords,emptyStateAddWord} from './admin_scripts/add_content.js';
 import {createMainTable} from './admin_scripts/create_main_table.js';
 import {getFilter} from './admin_scripts/use_filter.js';
 import {searchWord} from './admin_scripts/search_word.js';
@@ -11,6 +11,7 @@ import {showModalImage,createCategoryModal,editCategoryModal,removeCategoryModal
 import {openDropdown} from './admin_scripts/open_dropdown.js';
 import {createWord} from './admin_scripts/update_data/create_word.js';
 import {uploadFile} from './admin_scripts/upload_file.js';
+import {hideEmptyPage,showEmptyPage} from './admin_scripts/empty_state.js';
 
 //Admin Panel
 addContent(0);
@@ -66,18 +67,37 @@ function changeMenu(allWords) {
             } else if (index === 2) {
                 addContent(index);
                 sendCategories();
+                hideEmptyPage();
                 async function sendCategories() {
                     const data = await getAllCategory();
-                    openDropdown(data);
-                    createWord();
+                    if (data.length === 0) {
+                        showEmptyPage();
+                        emptyStateAddWord();
+                        document.querySelector('.add-category-empty').onclick = () => {
+                            addContent(1);
+                            getCategoryAPI();
+                            clearChecked();
+                            menu[2].innerHTML =``;
+                            hideEmptyPage();
+                            clearError();
+                            sidebarBtn[1].classList.add('nav-item_checked');
+                        }
+                    } else {
+                        openDropdown(data);
+                        createWord();
+                    }
                 }
             } else if (index === 3) {
-                addContent(index);
-                uploadFile();
+                if (allWords.length === 0) {
+                    showEmptyPage();
+                    emptyStateWords();
+                } else {
+                    addContent(index);
+                    uploadFile();
+                }
             }
         }
     });
 }
 
 export {getCategoryAPI,getDataAPI};
-

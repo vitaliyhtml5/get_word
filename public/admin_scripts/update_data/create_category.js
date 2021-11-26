@@ -12,12 +12,19 @@ function createCategory(category) {
     const input = document.querySelector('.modal input');
     const errorMessage = document.querySelector('.error-message');
 
-    if (checkFields() && checkUniqueCategory(category)) {
+ 
+    if (category.length === 0 && checkFields()) {
+        const data = {
+            category: input.value.toLowerCase().trim()
+        }
+        sendData(data);
+    } else if (category.length > 0 && checkFields() && checkUniqueCategory(category)) {
         const data = {
             category: input.value.toLowerCase().trim()
         }
         sendData(data);
     }
+   
     async function sendData(data) {
         showLoaderModal();
         const req = await fetch('/add-category', {
