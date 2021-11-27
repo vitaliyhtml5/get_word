@@ -22,6 +22,9 @@
 #aside {
     width: 270px;
 }
+.menu-item {
+    max-width: 255px;
+}
 .hide-sidebar,
 .filter-clear {
     display: block;
