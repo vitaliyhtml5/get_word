@@ -37,6 +37,13 @@ function showGrid(words, onlyGridsMenu = false) {
                 <span>${words[i].russian}</span>
             </div>`;
         }
+        document.querySelectorAll('.words-grid img').forEach(el => {
+            el.onerror = () => {
+                el.src = 'img/broken-img.png';
+                el.title = 'Image is missed';
+            };
+        });
+
         if (document.querySelector('.fav-words').classList.contains('nav-item_checked')) {
             document.querySelectorAll('.fav-btn').forEach(el => el.style.display = 'none');
         }

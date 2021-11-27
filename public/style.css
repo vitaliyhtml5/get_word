@@ -122,8 +122,9 @@ button {
 }
 .menu-item {
     overflow: hidden;
-    white-space: nowrap;
+    max-width: 230px;
     text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .nav-list li a {
     display: inline-block;
@@ -474,6 +475,36 @@ button {
     animation: 0.8s startLoader linear infinite;;
 }
 
+/* Empty state */
+.empty-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    padding-top: 50px;
+    letter-spacing: 0.8px;
+    background-color: #fff;
+}
+.empty-page b {
+    display: block;
+    margin: 20px auto 25px;
+    font-size: 24px;
+    text-align: center;
+}
+.empty-page button {
+    width: 220px;
+}
+.empty-page button,
+.empty-page img {
+    display: block;
+    margin: 0 auto;
+}
+.empty-page img {
+    width: 300px !important;
+}
+
 /* Error pages */
 .error-page a {
     width: 250px;
@@ -481,7 +512,6 @@ button {
 }
 
 /* Animations and class for js */
-
 @keyframes startLoader {
     0% {
         transform: translate(-50%, -50%) rotate(360deg);
@@ -580,9 +610,6 @@ button {
         width: 275px;
         margin-right: 5px;
     }
-    .search-message {
-        height: 45vh;
-    }
 }
 @media (max-width: 425px) {
     .header-wrap img {
@@ -628,7 +655,8 @@ button {
         margin-top: 30px;
     }
     .search-message img,
-    .fav-words-message img {
+    .fav-words-message img,
+    .empty-page img {
         width: 200px !important;
     }
 }

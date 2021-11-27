@@ -1,6 +1,7 @@
 'use strict';
 
 import {getWords} from '../script.js';
+import {getCategoryWithWords} from './get_category.js';
 
 // Set filter 
 function setFilter(words) {
@@ -24,12 +25,10 @@ function useFilter(words) {
     document.querySelector('.filter-icon').style.display = 'block';
     const filterWrap = document.querySelector('.filter-wrap');
     const filterBtn = document.querySelectorAll('.filter-btn-wrap button');
+    const openFilter = () => filterWrap.style.display = 'flex';
+    const closeFilter = () => filterWrap.style.display = 'none';
 
-    if (!filterWrap.classList.contains('show-flex')) {
-        filterWrap.classList.add('show-flex');
-    } else  {
-        closeFilter();
-    }
+    openFilter();
 
     filterBtn[0].addEventListener('click', () => {
         let filtereWords = setFilter(words)
@@ -39,8 +38,22 @@ function useFilter(words) {
     filterBtn[1].addEventListener('click', closeFilter);
 }
 
-function closeFilter() {
-    document.querySelector('.filter-wrap').classList.remove('show-flex');
+function addFilterInput(allWords) {
+    const categoryWrap = document.querySelector('.category-wrap');
+    const filterInputs = getCategoryWithWords(allWords);
+    for (let i in filterInputs) {
+        categoryWrap.innerHTML += `
+        <label><input type="checkbox" value="${filterInputs[i]}"><span></span>${filterInputs[i]}</label>`;
+    }    
 }
 
-export {setFilter, useFilter};
+function removePropagation() {
+    const filterWrap = document.querySelector('.filter-wrap');
+    document.querySelector('.filter-icon').addEventListener('click', e => e.stopPropagation());
+    filterWrap.addEventListener('click', e => e.stopPropagation());
+    document.body.onclick = () => {
+        if (filterWrap.style.display = 'flex') filterWrap.style.display = 'none';
+    }
+}
+
+export {setFilter, useFilter, addFilterInput, removePropagation};

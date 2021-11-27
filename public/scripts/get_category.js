@@ -10,4 +10,10 @@ function getCategory(words, category) {
     return wordsByCategory;
 }
 
-export {getCategory};
+function getCategoryWithWords(allWords) {
+    const allCategories = allWords.map(item => item.category);
+    const filterInputs = allCategories.filter((item, i, ar) => ar.indexOf(item) === i);
+    return filterInputs;
+}
+
+export {getCategory, getCategoryWithWords};

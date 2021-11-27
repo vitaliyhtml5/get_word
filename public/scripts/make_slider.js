@@ -66,6 +66,10 @@ function useSingleSlider(words) {
         if (localStorage.getItem('favWords')) {
             checkFavWords(words[counter].id, 'single');
         }
+        img.onerror = () => {
+            img.src = 'img/broken-img.png';
+            img.title = 'Image is missed';
+        };
     }
     
     // Switch to random order

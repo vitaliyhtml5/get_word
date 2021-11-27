@@ -38,8 +38,10 @@ function addContent(index) {
                 </thead>
                 <tbody></tbody>
             </table>
-            <div class="load-word"><button class="button-main"><span class="material-icons">restart_alt</span>Show more</button>
-            </div>
+        </div> 
+        <div class="load-word">
+            <button class="button-main">
+            <span class="material-icons">restart_alt</span>Show more</button>
         </div>`;
     } else if (index === 1) {
         menu[1].innerHTML = `
@@ -61,8 +63,10 @@ function addContent(index) {
                 </thead>
                 <tbody></tbody>
             </table>
-            <div class="load-word"><button class="button-main"><span class="material-icons">restart_alt</span>Show more</button>
-            </div>
+        </div>
+        <div class="load-word">
+            <button class="button-main">
+            <span class="material-icons">restart_alt</span>Show more</button>
         </div>`;
     } else if (index === 2) {
         menu[2].innerHTML = `
